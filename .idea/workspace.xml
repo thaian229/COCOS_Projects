@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modules/platformer/ScreenLevel1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/mainmenu/ScreenMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/mainmenu/ScreenMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/platformer/ScreenLevel1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/platformer/ScreenLevel1.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -699,7 +701,7 @@
       <workItem from="1652688654608" duration="1997000" />
       <workItem from="1652751681022" duration="1652000" />
       <workItem from="1652758400835" duration="2425000" />
-      <workItem from="1652762411640" duration="512000" />
+      <workItem from="1652762411640" duration="1301000" />
     </task>
     <servers />
   </component>

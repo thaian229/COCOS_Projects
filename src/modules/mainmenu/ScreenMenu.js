@@ -25,6 +25,10 @@ var ScreenMenu = cc.Layer.extend({
         this.addChild(btnDragonbones);
         btnDragonbones.addClickEventListener(this.onSelectDragonbones.bind(this));
 
+        var btnPlatformer = gv.commonButton(200, 64, cc.winSize.width/2, yBtn/2,"Platformer");
+        this.addChild(btnPlatformer);
+        btnPlatformer.addClickEventListener(this.onSelectPlatformer.bind(this));
+
     },
     onEnter:function(){
         this._super();
@@ -40,6 +44,9 @@ var ScreenMenu = cc.Layer.extend({
     onSelectDragonbones:function(sender)
     {
         fr.view(ScreenDragonbones);
+    },
+    onSelectPlatformer:function(sender)
+    {
+        fr.view(ScreenLevel1);
     }
-
 });
