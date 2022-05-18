@@ -47,6 +47,6 @@ var ScreenMenu = cc.Layer.extend({
     },
     onSelectPlatformer:function(sender)
     {
-        fr.view(ScreenLevel1);
+        fr.view(ScenePlay);
     }
 });

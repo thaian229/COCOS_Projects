@@ -1,8 +1,8 @@
 /**
- * Simple Platform Level 1
+ * Space Shooter Main Game Loop
  */
 
-var ScreenLevel1 = cc.Layer.extend({
+const ScenePlay = cc.Layer.extend({
     _itemMenu: null,
     _beginPos: 0,
     isMouseDown: false,
@@ -11,19 +11,22 @@ var ScreenLevel1 = cc.Layer.extend({
         this._super();
         this.loadGui();
     },
+
     loadGui:function () {
         this.removeAllChildren();
-        var size = cc.winSize;
+        let size = cc.winSize;
 
-        var btnBack = gv.commonButton(100, 64, size.width - 70, 52,"Back");
+        let btnBack = gv.commonButton(100, 64, size.width - 70, 52,"Back");
         this.addChild(btnBack);
         btnBack.addClickEventListener(this.onSelectBack.bind(this));
     },
+
     onEnter:function () {
         this._super();
     },
+
     onSelectBack:function(sender)
     {
-        fr.view(ScreenMenu);
+        fr.view(SceneMainMenu);
     }
 });
