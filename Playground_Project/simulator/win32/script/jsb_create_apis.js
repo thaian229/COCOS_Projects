@@ -838,7 +838,7 @@ cc.Sprite._create = cc.Sprite.create;
  * Create a sprite with image path or frame name or texture or spriteFrame.
  * @constructs
  * @param {String|cc.Texture2D|cc.SpriteFrame} fileName  The string which indicates a path to image file, e.g., "scene1/monster.png".
- * @param {cc.Rect} rect  Only the contents inside rect of pszFileName's texture will be applied for this sprite.
+ * @param {{x: number, width: number, y: number, height: number}|{x: *, width: *, y: *, height: *}|{x: *, width: *, y: *, height: *}|{x: Number|cc.point|cc.rect, width: Number, y: Number|cc.size, height: Number}} rect  Only the contents inside rect of pszFileName's texture will be applied for this sprite.
  * @return {cc.Sprite} A valid sprite object
  * @example
  *

@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assests/spaceshooter/sprites/bullet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assests/spaceshooter/sprites/space-ship.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assests/spaceshooter/sprites/ufo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/spaceshooter/SceneEnding.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/spaceshooter/SceneIntroduction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/spaceshooter/SceneMainMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/spaceshooter/Bullet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/spaceshooter/Enemy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/spaceshooter/Player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/mainmenu/ScreenMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/mainmenu/ScreenMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/platformer/ScreenLevel1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/spaceshooter/ScenePlay.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulator/win32/script/jsb_create_apis.js" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/win32/script/jsb_create_apis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/spaceshooter/SceneMainMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/spaceshooter/SceneMainMenu.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,7 +312,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JavaScript" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assests/spaceshooter/sprites" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assests/spaceshooter/fonts" />
     <property name="options.lastSelected" value="web-ide.project.structure" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -333,10 +326,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\COCOS_Projects\Playground_Project\assests\spaceshooter\fonts" />
+      <recent name="D:\workspace\COCOS_Projects\Playground_Project\assests\spaceshooter\colors" />
       <recent name="D:\workspace\COCOS_Projects\Playground_Project\assests\spaceshooter\sprites" />
       <recent name="D:\Project\TemplateGame\src\framework\plugins" />
       <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\network\auto" />
-      <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\game\render\effect" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\TemplateGame\src\framework" />
@@ -712,7 +706,7 @@
       <workItem from="1652758400835" duration="2425000" />
       <workItem from="1652762411640" duration="1301000" />
       <workItem from="1652837451198" duration="63000" />
-      <workItem from="1652837526626" duration="5418000" />
+      <workItem from="1652837526626" duration="7329000" />
     </task>
     <servers />
   </component>
