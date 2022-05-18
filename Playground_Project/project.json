@@ -45,6 +45,11 @@
         "src/modules/spaceshooter/SceneEnding.js",
         "src/modules/spaceshooter/SceneIntroduction.js",
         "src/modules/mainmenu/ScreenMenu.js",
+        "src/modules/testjs/Scene1.js",
+        "src/modules/testjs/Scene2.js",
+        "src/modules/testjs/Scene3.js",
+        "src/modules/testjs/Scene4.js",
+        "src/modules/testjs/Scene5.js",
         "src/modules/testnetwork/network/Network.js",
         "src/modules/testnetwork/network/Packet.js",
         "src/modules/testnetwork/ScreenNetwork.js"
