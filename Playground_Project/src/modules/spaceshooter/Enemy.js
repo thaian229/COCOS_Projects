@@ -2,6 +2,6 @@
  * Created by AnNT21.
  */
 
-const Enemy = cc.class.extend({
+const Enemy = cc.Sprite.extend({
 
 })
