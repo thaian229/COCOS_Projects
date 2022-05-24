@@ -2,25 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/res/battlecity/Bricks.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/a_dungeon_tileset_by_jani_makinen_gfx0_2016_32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/battle_city_level_01.tmx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/battle_city_level_endless.tmx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/Explosion_A.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/Explosion_B.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/Explosion_C.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/Explosion_D.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/Explosion_E.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/Explosion_F.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/Explosion_G.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/Explosion_H.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/color_a/Gun_01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/color_a/Gun_06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/color_a/Hull_01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/color_c/Gun_03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/color_c/Hull_02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/color_d/Gun_08.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/color_d/Hull_06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/battlecity/TileMap/battle_city_1_base64.tmx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/battlecity/TileSet/background_1.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/battlecity/TileSet/wall_1.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/battlecity/Bricks.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/battlecity/TileMap/Bricks.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/battlecity/a_dungeon_tileset_by_jani_makinen_gfx0_2016_32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/battlecity/TileMap/a_dungeon_tileset_by_jani_makinen_gfx0_2016_32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/battlecity/battle_city_level_01.tmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/battlecity/battle_city_level_endless.tmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/battlecity/ScreenLevel1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/ScreenLevel1.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,7 +315,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JavaScript" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/res/battlecity/sprites/color_d" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/res/battlecity/TileMap" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="options.lastSelected" value="web-ide.project.structure" />
     <property name="options.searchVisible" value="true" />
@@ -336,21 +327,22 @@
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity\TileMap" />
+      <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity\TileSet" />
+      <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity" />
       <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity\sprites\color_d" />
       <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity\sprites\color_c" />
-      <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity\sprites\color_a" />
-      <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity\sprites" />
-      <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity\TileMap" />
       <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity\sprites\color_a" />
       <recent name="D:\Project\TemplateGame\src\framework" />
       <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\framework\gui" />
       <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\framework\libs" />
-      <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\network\custom" />
     </key>
   </component>
   <component name="RunManager" selected="JSBinding.Win32Debug">
@@ -720,7 +712,7 @@
       <workItem from="1652762411640" duration="1301000" />
       <workItem from="1653360407226" duration="54000" />
       <workItem from="1653360472904" duration="15000" />
-      <workItem from="1653360506370" duration="898000" />
+      <workItem from="1653360506370" duration="7178000" />
     </task>
     <servers />
   </component>
