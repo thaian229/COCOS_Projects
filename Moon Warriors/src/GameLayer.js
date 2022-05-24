@@ -137,9 +137,41 @@ var GameLayer = cc.Layer.extend({
     },
     addTouchListener:function(){
         //Add code here
+        var self = this;
+        cc.eventManager.addListener({
+            prevTouchId: -1,
+            event: cc.EventListener.TOUCH_ALL_AT_ONCE,
+            onTouchesMoved: function (touches, event) {
+                var touch = touches[0];
+                if (self.prevTouchId !== touch.getID())
+                    self.prevTouchId = touch.getID();
+                else {
+                    if (self._state === STATE_PLAYING) {
+                        var delta = touch.getDelta();
+                        var curPos = cc.p(self._ship.x, self._ship.y);
+                        curPos = cc.pAdd(curPos, delta);
+                        curPos = cc.pClamp(curPos, cc.p(0, 0), cc.p(cc.winSize.width, cc.winSize.height));
+                        self._ship.x = curPos.x;
+                        self._ship.y = curPos.y;
+                        curPos = null;
+                    }
+                }
+            }
+        }, this);
     },
     addKeyboardListener:function(){
         //Add code here
+        if (cc.sys.capabilities.hasOwnProperty('keyboard')) {
+            cc.eventManager.addListener({
+                event: cc.EventListener.KEYBOARD,
+                onKeyPressed: function (key, event) {
+                    MW.KEYS[key] = true;
+                },
+                onKeyReleased: function (key, event) {
+                    MW.KEYS[key] = false;
+                }
+            }, this);
+        }
     },
     scoreCounter:function () {
         if (this._state == STATE_PLAYING) {

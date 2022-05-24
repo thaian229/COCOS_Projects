@@ -71,6 +71,30 @@ var SysMenu = cc.Layer.extend({
     initBackGround:function()
     {
         //Add code here
+        var size = cc.director.getWinSize();
+
+        var loadingSprite = new cc.Sprite("res/loading.png");
+        this.addChild(loadingSprite, 0);
+        loadingSprite.setPosition(size.width/2, size.height/2);
+        loadingSprite.setScale(size.width / loadingSprite.width);
+
+        var logoBackSprite = new cc.Sprite("res/logoBack.png");
+        this.addChild(logoBackSprite, 1);
+        logoBackSprite.setPosition(size.width/2, 4*size.height/5);
+        logoBackSprite.setScale(size.width / logoBackSprite.width);
+
+        var logoSprite = new cc.Sprite("res/logo.png");
+        this.addChild(logoSprite, 2);
+        logoSprite.setPosition(size.width/2, 2*size.height/3);
+        logoSprite.setScale(size.width / logoSprite.width);
+
+        // MW.LOGOY, MW.SCALE
+        /*
+        logoSprite.attr({
+            anchorX: 0,
+            ...
+        })
+         */
     },
 
     onNewGame:function (pSender) {

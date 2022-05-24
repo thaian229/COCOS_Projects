@@ -38,8 +38,11 @@
         "src/base/network/InPacketFactory.js",
         "src/base/Resource.js",
         "src/base/UIFactory.js",
-        "src/modules/battlecity/ScreenLevel1.js",
-        "src/modules/mainmenu/ScreenMenu.js",
+        "src/modules/battlecity/config/EnemyType.js",
+        "src/modules/battlecity/config/GameConfig.js",
+        "src/modules/battlecity/Player.js",
+        "src/modules/battlecity/scenes/SceneLevelEndless.js",
+        "src/modules/battlecity/scenes/SceneMenu.js",
         "src/modules/testnetwork/network/Network.js",
         "src/modules/testnetwork/network/Packet.js",
         "src/modules/testnetwork/ScreenNetwork.js"

@@ -2,7 +2,7 @@
  * Created by GSN on 7/6/2015.
  */
 
-var ScreenMenu = cc.Layer.extend({
+var SceneMenu = cc.Layer.extend({
     _itemMenu:null,
     _beginPos:0,
     isMouseDown:false,
@@ -13,7 +13,7 @@ var ScreenMenu = cc.Layer.extend({
 
         var yBtn = 3*size.height/5;
 
-        var btnPlatformer = gv.commonButton(200, 64, cc.winSize.width/2, yBtn/2,"Platformer");
+        var btnPlatformer = gv.commonButton(300, 96, cc.winSize.width/2, yBtn/2,"Battle City");
         this.addChild(btnPlatformer);
         btnPlatformer.addClickEventListener(this.onSelectPlatformer.bind(this));
 
@@ -25,6 +25,6 @@ var ScreenMenu = cc.Layer.extend({
 
     onSelectPlatformer:function(sender)
     {
-        fr.view(ScreenLevel1);
+        fr.view(SceneLevelEndless);
     }
 });

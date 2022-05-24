@@ -86,6 +86,12 @@ var LevelManager = cc.Class.extend({
                 break;
             case MW.ENEMY_MOVE_TYPE.OVERLAP:
                 //Add code here
+                var diffY = cc.winSize.height * 0.6;
+                var diffX = cc.winSize.width * 0.5;
+                var newX = (addEnemy.x <= cc.winSize.width / 2) ? diffX : -diffX;
+                a0 = cc.moveBy(4, cc.p(newX, -diffY));
+                a1 = cc.moveBy(4, cc.p(-newX, -diffY));
+                tmpAction = cc.sequence(a0, a1);
                 break;
         }
         if(tmpAction)
