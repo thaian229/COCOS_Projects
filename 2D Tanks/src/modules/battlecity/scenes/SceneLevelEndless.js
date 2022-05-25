@@ -17,6 +17,7 @@ var SceneLevelEndless = cc.Layer.extend({
     playerSpawnPoint: null,
     enemySpawnPoints: [],
     scoreLabel: null,
+    hpLabel: null,
     _tmpScore: 0,
     _spawnRate: 2.0,
     _deltaTimeSinceSpawned: 0.0,
@@ -77,6 +78,16 @@ var SceneLevelEndless = cc.Layer.extend({
             y: size.height - 50
         });
         this.addChild(this.scoreLabel, 10);
+
+        // Add HP counter
+        this.hpLabel = cc.LabelTTF("HP: 4", "battlecity/Pixeboy.ttf", 48);
+        this.hpLabel.attr({
+            anchorX: 0,
+            anchorY: 0,
+            x: 25,
+            y: size.height - 50
+        });
+        this.addChild(this.hpLabel, 10);
 
         // Add button back
         var btnBack = gv.commonButton(100, 64, size.width - 70, 52, "Back");
@@ -228,6 +239,7 @@ var SceneLevelEndless = cc.Layer.extend({
             this._tmpScore++;
         }
         this.scoreLabel.setString("Score: " + this._tmpScore);
+        this.hpLabel.setString("HP: " + this._player.HP);
     },
 
     checkPlayerDied: function () {
@@ -274,12 +286,12 @@ var SceneLevelEndless = cc.Layer.extend({
             enemyNode = BC.CONTAINER.ENEMIES[i];
             if (!enemyNode.active) continue;
 
-            if (Math.abs(playerNode.x - enemyNode.x) < BC.TILE_SIZE && Math.abs(playerNode.y - enemyNode.y) > BC.TILE_SIZE * 2) {
+            if (Math.abs(playerNode.x - enemyNode.x) < BC.TILE_SIZE / 3 && Math.abs(playerNode.y - enemyNode.y) > BC.TILE_SIZE / 2) {
                 if (playerNode.y >= enemyNode.y) enemyNode._moveDirection = BC.DIRECTION.UP;
                 if (playerNode.y < enemyNode.y) enemyNode._moveDirection = BC.DIRECTION.DOWN;
             }
 
-            if (Math.abs(playerNode.y - enemyNode.y) < BC.TILE_SIZE && Math.abs(playerNode.x - enemyNode.x) > BC.TILE_SIZE * 2) {
+            if (Math.abs(playerNode.y - enemyNode.y) < BC.TILE_SIZE / 3 && Math.abs(playerNode.x - enemyNode.x) > BC.TILE_SIZE / 2) {
                 if (playerNode.x >= enemyNode.x) enemyNode._moveDirection = BC.DIRECTION.RIGHT;
                 if (playerNode.x < enemyNode.x) enemyNode._moveDirection = BC.DIRECTION.LEFT;
             }

@@ -9,7 +9,7 @@ var Player = cc.Sprite.extend({
     _moveDirection: BC.DIRECTION.UP,
     fireRate: 1.0,
     speed: BC.TILE_SIZE * 4,
-    HP: 3,
+    HP: 4,
     canBeAttacked: true,
     zOrder: 1,
     spawnLocation: {

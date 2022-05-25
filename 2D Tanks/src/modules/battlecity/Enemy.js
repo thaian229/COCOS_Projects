@@ -4,7 +4,7 @@
 
 var Enemy = cc.Sprite.extend({
     _gunSprite: null,
-    _deltaSinceShoot: 2.5,
+    _deltaSinceShoot: 2.0,
     _fireRate: 2.0,
     eID: 0,
     active: false,

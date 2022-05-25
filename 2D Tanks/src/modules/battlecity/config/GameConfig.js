@@ -112,8 +112,8 @@ BC.EnemyType = [
         gunPath: "battlecity/sprites/color_c/Gun_03.png",
         MaxHP: 2,
         scoreValue: 125,
-        moveSpeed: BC.TILE_SIZE * 2,
-        fireRate: 4.5,
+        moveSpeed: BC.TILE_SIZE * 3,
+        fireRate: 3.5,
     },
     {
         type: 1,
@@ -121,8 +121,8 @@ BC.EnemyType = [
         gunPath: "battlecity/sprites/color_d/Gun_08.png",
         MaxHP: 3,
         scoreValue: 225,
-        moveSpeed: BC.TILE_SIZE,
-        fireRate: 3.0
+        moveSpeed: BC.TILE_SIZE * 2,
+        fireRate: 2.5
     }
 ];
 
