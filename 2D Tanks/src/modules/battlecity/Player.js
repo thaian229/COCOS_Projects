@@ -6,7 +6,7 @@
 var Player = cc.Sprite.extend({
     _gunSprite: null,
     _deltaTimeLastShot: 0.0,
-    _moveDirection: BC.BULLET_DIRECTION.UP,
+    _moveDirection: BC.DIRECTION.UP,
     fireRate: 1.0,
     speed: 32 * 4,
     HP: 3,
@@ -54,25 +54,25 @@ var Player = cc.Sprite.extend({
     // update position base on input
     updateMove:function(dt)
     {
-        if ((BC.KEYS[cc.KEY.w] || BC.KEYS[cc.KEY.up]) && this.y <= BC.MAP_SIZE.height) {
+        if ((BC.KEYS[cc.KEY.w] || BC.KEYS[cc.KEY.up]) && this.y <= BC.MAP_SIZE.height && !this.isBlocked.UP) {
             this.y += dt * this.speed;
             this.setRotation(BC.ROTATION.UP);
-            this._moveDirection = BC.BULLET_DIRECTION.UP;
+            this._moveDirection = BC.DIRECTION.UP;
         }
-        if ((BC.KEYS[cc.KEY.s] || BC.KEYS[cc.KEY.down]) && this.y >= 0) {
+        if ((BC.KEYS[cc.KEY.s] || BC.KEYS[cc.KEY.down]) && this.y >= 0 && !this.isBlocked.DOWN) {
             this.y -= dt * this.speed;
             this.setRotation(BC.ROTATION.DOWN);
-            this._moveDirection = BC.BULLET_DIRECTION.DOWN;
+            this._moveDirection = BC.DIRECTION.DOWN;
         }
-        if ((BC.KEYS[cc.KEY.a] || BC.KEYS[cc.KEY.left]) && this.x >= 0) {
+        if ((BC.KEYS[cc.KEY.a] || BC.KEYS[cc.KEY.left]) && this.x >= 0 && !this.isBlocked.LEFT) {
             this.x -= dt * this.speed;
             this.setRotation(BC.ROTATION.LEFT);
-            this._moveDirection = BC.BULLET_DIRECTION.LEFT;
+            this._moveDirection = BC.DIRECTION.LEFT;
         }
-        if ((BC.KEYS[cc.KEY.d] || BC.KEYS[cc.KEY.right]) && this.x <= BC.MAP_SIZE.width) {
+        if ((BC.KEYS[cc.KEY.d] || BC.KEYS[cc.KEY.right]) && this.x <= BC.MAP_SIZE.width && !this.isBlocked.RIGHT) {
             this.x += dt * this.speed;
             this.setRotation(BC.ROTATION.RIGHT);
-            this._moveDirection = BC.BULLET_DIRECTION.RIGHT;
+            this._moveDirection = BC.DIRECTION.RIGHT;
         }
     },
 
@@ -100,5 +100,12 @@ var Player = cc.Sprite.extend({
     destroy:function () {
         this.active = false;
         this.visible = false;
+    },
+
+    resetBlocked: function () {
+        this.isBlocked.LEFT = false;
+        this.isBlocked.RIGHT = false;
+        this.isBlocked.UP = false;
+        this.isBlocked.DOWN = false;
     }
 });

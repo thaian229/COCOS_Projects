@@ -93,6 +93,7 @@ var SceneLevelEndless = cc.Layer.extend({
                 if (i === 0 || i === 24 || j === 0 || j === 24) k = 0;
                 var wall = new Wall(sprite, BC.WallType[k]);
                 this.map.addChild(wall, 0, 5000);
+                wall.active = true;
                 BC.CONTAINER.WALLS.push(wall);
             }
         }
@@ -166,7 +167,35 @@ var SceneLevelEndless = cc.Layer.extend({
     },
 
     checkIsBlocked: function () {
+        var enemyNode, wallNode, i = 0, j = 0, player = this._player;
+        player.resetBlocked();
+        // check player is blocked
+        for (i = 0; i < BC.CONTAINER.WALLS.length; i++) {
+            wallNode = BC.CONTAINER.WALLS[i];
+            if (wallNode.active && this.collide(player, wallNode)) {
+                if (wallNode.x + 16 >= player.x + 32 && Math.abs(wallNode.y + 16 - player.y) <= 32) player.isBlocked.RIGHT = true;
+                if (wallNode.x + 16 <= player.x - 32 && Math.abs(wallNode.y + 16 - player.y) <= 32) player.isBlocked.LEFT = true;
+                if (wallNode.y + 16 >= player.y + 32 && Math.abs(wallNode.x + 16 - player.x) <= 32) player.isBlocked.UP = true;
+                if (wallNode.y + 16 <= player.y - 32 && Math.abs(wallNode.x + 16 - player.x) <= 32) player.isBlocked.DOWN = true;
+            }
+        }
 
+        // Check enemies blocked
+        for (i = 0; i < BC.CONTAINER.ENEMIES.length; i++) {
+            enemyNode = BC.CONTAINER.ENEMIES[i];
+            if (!enemyNode.active) continue;
+
+            enemyNode.resetBlocked();
+            for (j = 0; j < BC.CONTAINER.WALLS.length; j++) {
+                wallNode = BC.CONTAINER.WALLS[j];
+                if (wallNode.active && this.collide(enemyNode, wallNode)) {
+                    if (wallNode.x + 16 >= enemyNode.x + 32 && Math.abs(wallNode.y + 16 - enemyNode.y) <= 32) enemyNode.isBlocked.RIGHT = true;
+                    if (wallNode.x + 16 <= enemyNode.x - 32 && Math.abs(wallNode.y + 16 - enemyNode.y) <= 32) enemyNode.isBlocked.LEFT = true;
+                    if (wallNode.y + 16 >= enemyNode.y + 32 && Math.abs(wallNode.x + 16 - enemyNode.x) <= 32) enemyNode.isBlocked.UP = true;
+                    if (wallNode.y + 16 <= enemyNode.y - 32 && Math.abs(wallNode.x + 16 - enemyNode.x) <= 32) enemyNode.isBlocked.DOWN = true;
+                }
+            }
+        }
     },
 
     updateUI:function () {

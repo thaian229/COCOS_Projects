@@ -24,7 +24,7 @@ var Enemy = cc.Sprite.extend({
         this._super(this.enemyType.hullPath);
 
         // Init fields
-        this.moveDirection = BC.BULLET_DIRECTION.UP;
+        this.moveDirection = BC.DIRECTION.UP;
         this._HP = this.enemyType.MaxHP;
         this._fireRate = this.enemyType.fireRate;
 
@@ -77,6 +77,13 @@ var Enemy = cc.Sprite.extend({
     collideRect:function (x, y) {
         var w = this.width * BC.SCALING, h = this.height * BC.SCALING;
         return cc.rect(x - w / 2, y - h / 2, w, h);
+    },
+
+    resetBlocked: function () {
+        this.isBlocked.LEFT = false;
+        this.isBlocked.RIGHT = false;
+        this.isBlocked.UP = false;
+        this.isBlocked.DOWN = false;
     }
 });
 

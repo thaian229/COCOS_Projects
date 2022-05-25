@@ -86,12 +86,12 @@ Bullet.create = function (moveDirection, zOrder, bullet_source) {
 Bullet.preSet = function () {
     var bullet = null;
     for (var i = 0; i < 10; i++) {
-        bullet = Bullet.create(BC.BULLET_DIRECTION.UP, 2, BC.UNIT_TAG.PLAYER_BULLET);
+        bullet = Bullet.create(BC.DIRECTION.UP, 2, BC.UNIT_TAG.PLAYER_BULLET);
         bullet.visible = false;
         bullet.active = false;
     }
     for (var j = 0; j < 10; j++) {
-        bullet = Bullet.create(BC.BULLET_DIRECTION.UP, 2, BC.UNIT_TAG.ENEMY_BULLET);
+        bullet = Bullet.create(BC.DIRECTION.UP, 2, BC.UNIT_TAG.ENEMY_BULLET);
         bullet.visible = false;
         bullet.active = false;
     }

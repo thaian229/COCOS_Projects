@@ -60,7 +60,7 @@ BC.ROTATION = {
     DOWN: 180.0
 };
 
-BC.BULLET_DIRECTION = {
+BC.DIRECTION = {
     LEFT: {
         x: -BC.BULLET_SPEED,
         y: 0,
