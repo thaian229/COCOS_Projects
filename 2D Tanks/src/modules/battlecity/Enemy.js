@@ -68,18 +68,14 @@ var Enemy = cc.Sprite.extend({
     }
 });
 
-Enemy.getOrCreateEnemy = function (arg) {
+Enemy.getOrCreateEnemy = function (enemyType) {
     var selChild = null;
-    for (var j = 0; j < MW.CONTAINER.ENEMIES.length; j++) {
-        selChild = MW.CONTAINER.ENEMIES[j];
+    for (var j = 0; j < BC.CONTAINER.ENEMIES.length; j++) {
+        selChild = BC.CONTAINER.ENEMIES[j];
 
-        if (selChild.active == false && selChild.enemyType == arg.type) {
-            selChild.HP = arg.HP;
+        if (selChild.active === false && selChild.enemyType === enemyType) {
+            selChild.HP = enemyType.HP;
             selChild.active = true;
-            selChild.moveType = arg.moveType;
-            selChild.scoreValue = arg.scoreValue;
-            selChild.attackMode = arg.attackMode;
-            selChild._hurtColorLife = 0;
 
             selChild.schedule(selChild.shoot, selChild.delayTime);
             selChild.visible = true;
@@ -87,7 +83,7 @@ Enemy.getOrCreateEnemy = function (arg) {
             return selChild;
         }
     }
-    selChild = Enemy.create(arg);
+    selChild = Enemy.create(enemyType);
     MW.ACTIVE_ENEMIES++;
     return selChild;
 };
