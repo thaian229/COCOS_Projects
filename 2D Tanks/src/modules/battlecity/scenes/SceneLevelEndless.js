@@ -66,6 +66,7 @@ var SceneLevelEndless = cc.Layer.extend({
 
         // Presetting Object Pools
         Bullet.preSet();
+        Enemy.preSet();
     },
 
     addKeyboardListener:function (){

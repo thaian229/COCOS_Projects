@@ -6,7 +6,7 @@ var Bullet = cc.Sprite.extend({
     active: true,
     moveDirection: null,
     HP: 1,
-    zOrder: 3000,
+    zOrder: 2,
 
     ctor: function (moveDirection) {
         this._super("battlecity/sprites/Light_Shell.png");

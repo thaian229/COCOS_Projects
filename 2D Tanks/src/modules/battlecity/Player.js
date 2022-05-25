@@ -73,7 +73,7 @@ var Player = cc.Sprite.extend({
     shoot:function (dt) {
         this._deltaTimeLastShot += dt;
         if (BC.KEYS[cc.KEY.space] && this._deltaTimeLastShot >= this.fireRate) {
-            var bullet = Bullet.getOrCreateBullet(this._moveDirection, 3000, BC.UNIT_TAG.PLAYER_BULLET)
+            var bullet = Bullet.getOrCreateBullet(this._moveDirection, 2, BC.UNIT_TAG.PLAYER_BULLET)
             this._deltaTimeLastShot = 0.0;
             bullet.x = this.x + this._moveDirection.offset_x;
             bullet.y = this.y + this._moveDirection.offset_y;
@@ -82,7 +82,7 @@ var Player = cc.Sprite.extend({
 
     collideRect:function (x, y) {
         var w = this.width, h = this.height;
-        return cc.rect(x - w / 2, y - h / 2, w, h / 2);
+        return cc.rect(x - w / 2, y - h / 2, w, h);
     },
 
     hurt:function () {

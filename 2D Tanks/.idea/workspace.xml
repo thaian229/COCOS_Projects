@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/Light_Shell.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/battlecity/Bullet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/battlecity/Enemy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/battlecity/Bullet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/Bullet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/battlecity/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/battlecity/config/GameConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/config/GameConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/battlecity/config/EnemyType.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/config/EnemyType.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/battlecity/scenes/SceneLevelEndless.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/scenes/SceneLevelEndless.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -548,6 +548,19 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" uri="http://localhost:63342/HelloJavascript/index.html">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
@@ -710,7 +723,7 @@
       <workItem from="1653378837541" duration="7020000" />
       <workItem from="1653393313662" duration="588000" />
       <workItem from="1653441929538" duration="3594000" />
-      <workItem from="1653445703261" duration="461000" />
+      <workItem from="1653445703261" duration="2485000" />
     </task>
     <servers />
   </component>

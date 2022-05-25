@@ -41,6 +41,7 @@
         "src/modules/battlecity/Bullet.js",
         "src/modules/battlecity/config/EnemyType.js",
         "src/modules/battlecity/config/GameConfig.js",
+        "src/modules/battlecity/Enemy.js",
         "src/modules/battlecity/Player.js",
         "src/modules/battlecity/scenes/SceneLevelEndless.js",
         "src/modules/battlecity/scenes/SceneMenu.js",
