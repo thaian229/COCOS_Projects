@@ -4,14 +4,15 @@
 
 var Enemy = cc.Sprite.extend({
     _gunSprite: null,
-    _deltaSinceShoot: 0.0,
+    _deltaSinceShoot: 2.5,
     _fireRate: 2.0,
     eID: 0,
     active: false,
     zOrder: 1,
     _HP: 1,
     enemyType: null,
-    moveDirection: null,
+    _moveSpeed: 32 * 2,
+    _moveDirection: null,
     isBlocked: {
         LEFT: false,
         RIGHT: false,
@@ -24,9 +25,10 @@ var Enemy = cc.Sprite.extend({
         this._super(this.enemyType.hullPath);
 
         // Init fields
-        this.moveDirection = BC.DIRECTION.UP;
+        this._moveDirection = BC.DIRECTION.UP;
         this._HP = this.enemyType.MaxHP;
         this._fireRate = this.enemyType.fireRate;
+        this._moveSpeed = this.enemyType.moveSpeed;
 
         // Add gun
         this._gunSprite = cc.Sprite.create(this.enemyType.gunPath);
@@ -47,10 +49,54 @@ var Enemy = cc.Sprite.extend({
     },
 
     updateMove: function (dt) {
-        // TODO: Bot's movement
+        this.updateMoveDirection();
+
+        if (this._moveDirection === BC.DIRECTION.UP && this.y <= BC.MAP_SIZE.height && !this.isBlocked.UP) {
+            this.y += dt * this._moveSpeed;
+            this.setRotation(BC.ROTATION.UP);
+        }
+        if (this._moveDirection === BC.DIRECTION.DOWN && this.y >= 0 && !this.isBlocked.DOWN) {
+            this.y -= dt * this._moveSpeed;
+            this.setRotation(BC.ROTATION.DOWN);
+        }
+        if (this._moveDirection === BC.DIRECTION.LEFT && this.x >= 0 && !this.isBlocked.LEFT) {
+            this.x -= dt * this._moveSpeed;
+            this.setRotation(BC.ROTATION.LEFT);
+        }
+        if (this._moveDirection === BC.DIRECTION.RIGHT && this.x <= BC.MAP_SIZE.width && !this.isBlocked.RIGHT) {
+            this.x += dt * this._moveSpeed;
+            this.setRotation(BC.ROTATION.RIGHT);
+        }
     },
 
-    destroy:function () {
+    updateMoveDirection: function () {
+        if (
+            (this._moveDirection === BC.DIRECTION.UP && this.isBlocked.UP)
+            || (this._moveDirection === BC.DIRECTION.DOWN && this.isBlocked.DOWN)
+            || (this._moveDirection === BC.DIRECTION.LEFT && this.isBlocked.LEFT)
+            || (this._moveDirection === BC.DIRECTION.RIGHT && this.isBlocked.RIGHT)
+        ) {
+            var randomDirection = Math.floor(Math.random() * 4);
+            switch (randomDirection) {
+                case 0:
+                    this._moveDirection = BC.DIRECTION.UP;
+                    break;
+                case 1:
+                    this._moveDirection = BC.DIRECTION.DOWN;
+                    break;
+                case 2:
+                    this._moveDirection = BC.DIRECTION.LEFT;
+                    break;
+                case 3:
+                    this._moveDirection = BC.DIRECTION.RIGHT;
+                    break;
+                default:
+                    break;
+            }
+        }
+    },
+
+    destroy: function () {
         BC.SCORE += this.enemyType.scoreValue;
         // Hide enemy
         this.visible = false;
@@ -59,24 +105,24 @@ var Enemy = cc.Sprite.extend({
         BC.ACTIVE_ENEMIES--;
     },
 
-    shoot:function (dt) {
+    shoot: function (dt) {
         this._deltaSinceShoot += dt;
         if (this._deltaSinceShoot >= this._fireRate) {
             var x = this.x, y = this.y;
-            var b = Bullet.getOrCreateBullet(this.moveDirection, 2, BC.UNIT_TAG.ENEMY_BULLET);
-            b.x = x + this.moveDirection.offset_x;
-            b.y = y + this.moveDirection.offset_y;
+            var b = Bullet.getOrCreateBullet(this._moveDirection, 2, BC.UNIT_TAG.ENEMY_BULLET);
+            b.x = x + this._moveDirection.offset_x;
+            b.y = y + this._moveDirection.offset_y;
             this._deltaSinceShoot = 0.0;
         }
     },
 
-    hurt:function () {
+    hurt: function () {
         this._HP--;
     },
 
-    collideRect:function (x, y) {
+    collideRect: function (x, y) {
         var w = this.width * BC.SCALING, h = this.height * BC.SCALING;
-        return cc.rect(x - w / 2 + 3, y - h / 2 + 3, w - 6, h - 6);
+        return cc.rect(x - w / 2, y - h / 2, w, h);
     },
 
     resetBlocked: function () {

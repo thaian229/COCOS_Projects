@@ -112,8 +112,8 @@ BC.EnemyType = [
         gunPath: "battlecity/sprites/color_c/Gun_03.png",
         MaxHP: 2,
         scoreValue: 125,
-        moveSpeed: BC.TILE_SIZE * 4,
-        fireRate: 3.0,
+        moveSpeed: BC.TILE_SIZE * 2,
+        fireRate: 4.5,
     },
     {
         type: 1,
@@ -121,8 +121,8 @@ BC.EnemyType = [
         gunPath: "battlecity/sprites/color_d/Gun_08.png",
         MaxHP: 3,
         scoreValue: 225,
-        moveSpeed: BC.TILE_SIZE * 3,
-        fireRate: 2.0
+        moveSpeed: BC.TILE_SIZE,
+        fireRate: 3.0
     }
 ];
 
@@ -134,12 +134,12 @@ BC.WallType = [
     },
     {
         type: 1,
-        MaxHP: 2,
+        MaxHP: 3,
         isDestroyable: true
     },
     {
         type: 2,
-        MaxHP: 4,
+        MaxHP: 5,
         isDestroyable: true
     }
 ];

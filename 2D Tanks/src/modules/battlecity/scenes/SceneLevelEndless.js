@@ -4,8 +4,8 @@
 
 STATE_PLAYING = 0;
 STATE_GAMEOVER = 1;
-MAX_CONTAINT_WIDTH = 75;
-MAX_CONTAINT_HEIGHT = 75;
+MAX_CONTAINT_WIDTH = 100;
+MAX_CONTAINT_HEIGHT = 100;
 
 var g_sharedGameLayer;
 
@@ -143,6 +143,7 @@ var SceneLevelEndless = cc.Layer.extend({
             this.checkIsCollide();
             this.checkIsBlocked();
             this.updateUI();
+            this.updateEnemiesMoveDirection();
             this.checkPlayerDied();
             this.spawnEnemies(dt);
         }
@@ -179,7 +180,7 @@ var SceneLevelEndless = cc.Layer.extend({
         }
 
         // Check collide bullets & walls
-        for (i = 0; i < BC.CONTAINER.PLAYER_BULLETS.length; i ++) {
+        for (i = 0; i < BC.CONTAINER.PLAYER_BULLETS.length; i++) {
             bulletNode = BC.CONTAINER.PLAYER_BULLETS[i];
             if (!bulletNode.active) continue;
             for (j = 0; j < BC.CONTAINER.WALLS.length; j++) {
@@ -192,7 +193,7 @@ var SceneLevelEndless = cc.Layer.extend({
             }
         }
 
-        for (i = 0; i < BC.CONTAINER.ENEMY_BULLETS.length; i ++) {
+        for (i = 0; i < BC.CONTAINER.ENEMY_BULLETS.length; i++) {
             bulletNode = BC.CONTAINER.ENEMY_BULLETS[i];
             if (!bulletNode.active) continue;
             for (j = 0; j < BC.CONTAINER.WALLS.length; j++) {
@@ -214,10 +215,10 @@ var SceneLevelEndless = cc.Layer.extend({
         for (i = 0; i < BC.CONTAINER.WALLS.length; i++) {
             wallNode = BC.CONTAINER.WALLS[i];
             if (wallNode.active && this.collide(player, wallNode)) {
-                if (wallNode.x + BC.TILE_SIZE / 2 >= player.x + BC.TILE_SIZE && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - player.y) <= BC.TILE_SIZE) player.isBlocked.RIGHT = true;
-                if (wallNode.x + BC.TILE_SIZE / 2 <= player.x - BC.TILE_SIZE && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - player.y) <= BC.TILE_SIZE) player.isBlocked.LEFT = true;
-                if (wallNode.y + BC.TILE_SIZE / 2 >= player.y + BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - player.x) <= BC.TILE_SIZE) player.isBlocked.UP = true;
-                if (wallNode.y + BC.TILE_SIZE / 2 <= player.y - BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - player.x) <= BC.TILE_SIZE) player.isBlocked.DOWN = true;
+                if (wallNode.x + BC.TILE_SIZE / 2 >= player.x + BC.TILE_SIZE && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - player.y) < BC.TILE_SIZE) player.isBlocked.RIGHT = true;
+                if (wallNode.x + BC.TILE_SIZE / 2 < player.x - BC.TILE_SIZE && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - player.y) < BC.TILE_SIZE) player.isBlocked.LEFT = true;
+                if (wallNode.y + BC.TILE_SIZE / 2 >= player.y + BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - player.x) < BC.TILE_SIZE) player.isBlocked.UP = true;
+                if (wallNode.y + BC.TILE_SIZE / 2 < player.y - BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - player.x) < BC.TILE_SIZE) player.isBlocked.DOWN = true;
             }
         }
 
@@ -230,10 +231,10 @@ var SceneLevelEndless = cc.Layer.extend({
             for (j = 0; j < BC.CONTAINER.WALLS.length; j++) {
                 wallNode = BC.CONTAINER.WALLS[j];
                 if (wallNode.active && this.collide(enemyNode, wallNode)) {
-                    if (wallNode.x + BC.TILE_SIZE / 2 >= enemyNode.x + BC.TILE_SIZE && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - enemyNode.y) <= BC.TILE_SIZE) enemyNode.isBlocked.RIGHT = true;
-                    if (wallNode.x + BC.TILE_SIZE / 2 <= enemyNode.x - BC.TILE_SIZE && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - enemyNode.y) <= BC.TILE_SIZE) enemyNode.isBlocked.LEFT = true;
-                    if (wallNode.y + BC.TILE_SIZE / 2 >= enemyNode.y + BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - enemyNode.x) <= BC.TILE_SIZE) enemyNode.isBlocked.UP = true;
-                    if (wallNode.y + BC.TILE_SIZE / 2 <= enemyNode.y - BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - enemyNode.x) <= BC.TILE_SIZE) enemyNode.isBlocked.DOWN = true;
+                    if (wallNode.x + BC.TILE_SIZE / 2 >= enemyNode.x && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - enemyNode.y) < BC.TILE_SIZE) enemyNode.isBlocked.RIGHT = true;
+                    if (wallNode.x + BC.TILE_SIZE / 2 < enemyNode.x && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - enemyNode.y) < BC.TILE_SIZE) enemyNode.isBlocked.LEFT = true;
+                    if (wallNode.y + BC.TILE_SIZE / 2 >= enemyNode.y && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - enemyNode.x) < BC.TILE_SIZE) enemyNode.isBlocked.UP = true;
+                    if (wallNode.y + BC.TILE_SIZE / 2 < enemyNode.y && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - enemyNode.x) < BC.TILE_SIZE) enemyNode.isBlocked.DOWN = true;
                 }
             }
         }
@@ -281,6 +282,25 @@ var SceneLevelEndless = cc.Layer.extend({
         var aRect = a.collideRect(ax, ay);
         var bRect = b.collideRect(bx, by);
         return cc.rectIntersectsRect(aRect, bRect);
+    },
+
+    updateEnemiesMoveDirection: function () {
+        var i, enemyNode, playerNode = this._player;
+
+        for (i = 0; i < BC.CONTAINER.ENEMIES.length; i++) {
+            enemyNode = BC.CONTAINER.ENEMIES[i];
+            if (!enemyNode.active) continue;
+
+            if (Math.abs(playerNode.x - enemyNode.x) < BC.TILE_SIZE && Math.abs(playerNode.y - enemyNode.y) > BC.TILE_SIZE * 2) {
+                if (playerNode.y >= enemyNode.y) enemyNode._moveDirection = BC.DIRECTION.UP;
+                if (playerNode.y < enemyNode.y) enemyNode._moveDirection = BC.DIRECTION.DOWN;
+            }
+
+            if (Math.abs(playerNode.y - enemyNode.y) < BC.TILE_SIZE && Math.abs(playerNode.x - enemyNode.x) > BC.TILE_SIZE * 2) {
+                if (playerNode.x >= enemyNode.x) enemyNode._moveDirection = BC.DIRECTION.RIGHT;
+                if (playerNode.x < enemyNode.x) enemyNode._moveDirection = BC.DIRECTION.LEFT;
+            }
+        }
     },
 
     onGameOver: function () {
