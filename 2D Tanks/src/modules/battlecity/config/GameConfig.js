@@ -1,7 +1,8 @@
 var BC = BC || {};
 
 // Character scaling
-BC.SCALING = 0.25;
+BC.SCALING = 0.2;
+BC.BULLET_OFFSET = 35;
 
 // Map size
 BC.MAP_SIZE = {
@@ -50,31 +51,49 @@ BC.CONTAINER = {
 //bullet speed and directions
 BC.BULLET_SPEED = 32 * 6;
 
-BC.BULLET_DIRECTION = {
-    LEFT: {
-        x: -BC.BULLET_SPEED,
-        y: 0,
-    },
-    RIGHT: {
-        x: BC.BULLET_SPEED,
-        y: 0,
-    },
-    UP: {
-        x: 0,
-        y: BC.BULLET_SPEED,
-    },
-    DOWN: {
-        x: 0,
-        y: -BC.BULLET_SPEED,
-    }
-};
-
 // Rotation
 BC.ROTATION = {
     LEFT: 270.0,
     RIGHT: 90.0,
     UP: 0.0,
     DOWN: 180.0
+};
+
+BC.BULLET_DIRECTION = {
+    LEFT: {
+        x: -BC.BULLET_SPEED,
+        y: 0,
+        offset_x: -BC.BULLET_OFFSET,
+        offset_y: 0,
+        rotation: BC.ROTATION.LEFT
+    },
+    RIGHT: {
+        x: BC.BULLET_SPEED,
+        y: 0,
+        offset_x: BC.BULLET_OFFSET,
+        offset_y: 0,
+        rotation: BC.ROTATION.RIGHT
+    },
+    UP: {
+        x: 0,
+        y: BC.BULLET_SPEED,
+        offset_x: 0,
+        offset_y: BC.BULLET_OFFSET,
+        rotation: BC.ROTATION.UP
+    },
+    DOWN: {
+        x: 0,
+        y: -BC.BULLET_SPEED,
+        offset_x: 0,
+        offset_y: -BC.BULLET_OFFSET,
+        rotation: BC.ROTATION.DOWN
+    }
+};
+
+//bullet type
+BC.BULLET_TYPE = {
+    PLAYER:1,
+    ENEMY:2
 };
 
 // the counter of active enemies

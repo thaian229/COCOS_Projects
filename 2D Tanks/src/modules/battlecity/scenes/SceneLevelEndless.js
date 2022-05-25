@@ -5,6 +5,8 @@
 STATE_PLAYING = 0;
 STATE_GAMEOVER = 1;
 
+var g_sharedGameLayer;
+
 var SceneLevelEndless = cc.Layer.extend({
     _player: null,
     _explosions: null,
@@ -41,6 +43,8 @@ var SceneLevelEndless = cc.Layer.extend({
         this.addChild(this.map, 0);
         this.map.setPosition(size.width/2 - this.map.width/2, 0);
 
+        g_sharedGameLayer = this.map;
+
         // var objectGroup = map.getObjectGroup("object_layer");
         // var play_spawn = objectGroup.getObjects()[0];
 
@@ -59,6 +63,9 @@ var SceneLevelEndless = cc.Layer.extend({
         var btnBack = gv.commonButton(100, 64, size.width - 70, 52,"Back");
         this.addChild(btnBack, 10);
         btnBack.addClickEventListener(this.onSelectBack.bind(this));
+
+        // Presetting Object Pools
+        Bullet.preSet();
     },
 
     addKeyboardListener:function (){

@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/res/battlecity/sprites/Light_Shell.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/battlecity/Bullet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/battlecity/TileMap/BC_1.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/res/battlecity/TileMap/BC_1.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/battlecity/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/battlecity/config/GameConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/config/GameConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/battlecity/scenes/SceneLevelEndless.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/scenes/SceneLevelEndless.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +45,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -106,13 +119,6 @@
   <component name="JsBuildToolGruntFileManager" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -308,7 +314,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JavaScript" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/res/battlecity/TileMap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/res/battlecity/sprites" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -330,11 +336,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity\sprites" />
       <recent name="D:\Game Projects\COCOS_Projects\2D Tanks\res\battlecity\TileMap" />
       <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity\TileMap" />
       <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity\TileSet" />
       <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity" />
-      <recent name="D:\workspace\COCOS_Projects\2D Tanks\res\battlecity\sprites\color_d" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Game Projects\COCOS_Projects\2D Tanks\src\modules\battlecity\scenes" />
@@ -703,6 +709,8 @@
       <workItem from="1653360506370" duration="7178000" />
       <workItem from="1653378837541" duration="7020000" />
       <workItem from="1653393313662" duration="588000" />
+      <workItem from="1653441929538" duration="3594000" />
+      <workItem from="1653445703261" duration="461000" />
     </task>
     <servers />
   </component>

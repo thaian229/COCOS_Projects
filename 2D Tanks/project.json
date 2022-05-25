@@ -38,6 +38,7 @@
         "src/base/network/InPacketFactory.js",
         "src/base/Resource.js",
         "src/base/UIFactory.js",
+        "src/modules/battlecity/Bullet.js",
         "src/modules/battlecity/config/EnemyType.js",
         "src/modules/battlecity/config/GameConfig.js",
         "src/modules/battlecity/Player.js",
