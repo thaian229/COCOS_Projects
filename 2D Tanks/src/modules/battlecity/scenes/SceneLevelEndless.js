@@ -94,6 +94,7 @@ var SceneLevelEndless = cc.Layer.extend({
                 var wall = new Wall(sprite, BC.WallType[k]);
                 this.map.addChild(wall, 0, 5000);
                 wall.active = true;
+                wall.visible = true;
                 BC.CONTAINER.WALLS.push(wall);
             }
         }
@@ -104,18 +105,17 @@ var SceneLevelEndless = cc.Layer.extend({
             cc.eventManager.addListener({
                 event: cc.EventListener.KEYBOARD,
                 onKeyPressed: function (key, event) {
-                    BC.KEYS[key] = true;
-                    if (key === cc.KEY.w || key === cc.KEY.s || key === cc.KEY.up || key === cc.KEY.down) {
+                    if (key === cc.KEY.w || key === cc.KEY.s || key === cc.KEY.up || key === cc.KEY.down || key === cc.KEY.a || key === cc.KEY.d || key === cc.KEY.left || key === cc.KEY.right) {
                         BC.KEYS[cc.KEY.a] = false;
                         BC.KEYS[cc.KEY.d] = false;
                         BC.KEYS[cc.KEY.left] = false;
                         BC.KEYS[cc.KEY.right] = false;
-                    } else if (key === cc.KEY.a || key === cc.KEY.d || key === cc.KEY.left || key === cc.KEY.right) {
                         BC.KEYS[cc.KEY.w] = false;
                         BC.KEYS[cc.KEY.s] = false;
                         BC.KEYS[cc.KEY.up] = false;
                         BC.KEYS[cc.KEY.down] = false;
                     }
+                    BC.KEYS[key] = true;
                 },
                 onKeyReleased: function (key, event) {
                     BC.KEYS[key] = false;
@@ -135,7 +135,7 @@ var SceneLevelEndless = cc.Layer.extend({
     },
 
     checkIsCollide: function () {
-        var enemyNode, bulletNode;
+        var enemyNode, bulletNode, wallNode;
 
         // check collide of Player's bullet & Enemies
         var i, player = this._player;
@@ -163,6 +163,34 @@ var SceneLevelEndless = cc.Layer.extend({
                 }
             }
         }
+
+        // Check collide bullets & walls
+        for (i = 0; i < BC.CONTAINER.PLAYER_BULLETS.length; i ++) {
+            bulletNode = BC.CONTAINER.PLAYER_BULLETS[i];
+            if (!bulletNode.active) continue;
+            for (j = 0; j < BC.CONTAINER.WALLS.length; j++) {
+                wallNode = BC.CONTAINER.WALLS[j];
+                if (!wallNode.active) continue;
+                if (this.collide(bulletNode, wallNode)) {
+                    bulletNode.hurt();
+                    wallNode.hurt();
+                }
+            }
+        }
+
+        for (i = 0; i < BC.CONTAINER.ENEMY_BULLETS.length; i ++) {
+            bulletNode = BC.CONTAINER.ENEMY_BULLETS[i];
+            if (!bulletNode.active) continue;
+            for (j = 0; j < BC.CONTAINER.WALLS.length; j++) {
+                wallNode = BC.CONTAINER.WALLS[j];
+                if (!wallNode.active) continue;
+                if (this.collide(bulletNode, wallNode)) {
+                    bulletNode.hurt();
+                    wallNode.hurt();
+                }
+            }
+        }
+
     },
 
     checkIsBlocked: function () {

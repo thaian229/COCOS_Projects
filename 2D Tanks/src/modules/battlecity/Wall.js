@@ -16,14 +16,17 @@ var Wall = cc.Node.extend({
     },
 
     update: function (dt) {
-        if (this.HP <= 0) {
+        if (this._HP <= 0) {
             this.destroy();
         }
     },
 
     destroy: function () {
         if (this._wallType.isDestroyable) {
-            this.sprite.destroy();
+            this.wallTileSprite.active = false;
+            this.wallTileSprite.visible = false;
+
+            this.unscheduleUpdate();
             this.active = false;
             this.visible = false;
         }
@@ -31,7 +34,7 @@ var Wall = cc.Node.extend({
 
     hurt: function () {
         if (this._wallType.isDestroyable) {
-            this.HP--;
+            this._HP--;
         }
     },
 

@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/battlecity/Bullet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/Bullet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/battlecity/Enemy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/Enemy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/battlecity/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/Player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/battlecity/Wall.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/Wall.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/battlecity/config/GameConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/config/GameConfig.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/battlecity/scenes/SceneLevelEndless.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/scenes/SceneLevelEndless.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -548,17 +544,6 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" uri="http://localhost:63342/HelloJavascript/index.html">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
@@ -723,7 +708,8 @@
       <workItem from="1653441929538" duration="3594000" />
       <workItem from="1653445703261" duration="2485000" />
       <workItem from="1653452978988" duration="1448000" />
-      <workItem from="1653465511248" duration="12293000" />
+      <workItem from="1653465511248" duration="13208000" />
+      <workItem from="1653479147307" duration="967000" />
     </task>
     <servers />
   </component>
