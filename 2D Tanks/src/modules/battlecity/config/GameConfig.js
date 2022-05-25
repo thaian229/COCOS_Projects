@@ -46,6 +46,7 @@ BC.CONTAINER = {
     ENEMIES:[],
     ENEMY_BULLETS:[],
     PLAYER_BULLETS:[],
+    WALLS: []
 };
 
 //bullet speed and directions
@@ -120,5 +121,23 @@ BC.EnemyType = [
         scoreValue: 225,
         moveSpeed: 32 * 3,
         fireRate: 2.0
+    }
+];
+
+BC.WallType = [
+    {
+        type: 0,
+        MaxHP: 999,
+        isDestroyable: false
+    },
+    {
+        type: 1,
+        MaxHP: 2,
+        isDestroyable: true
+    },
+    {
+        type: 2,
+        MaxHP: 4,
+        isDestroyable: true
     }
 ];

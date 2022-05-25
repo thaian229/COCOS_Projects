@@ -46,6 +46,7 @@ var SceneLevelEndless = cc.Layer.extend({
         this.map = cc.TMXTiledMap.create("battlecity/TileMap/BC_1.tmx");
         this.addChild(this.map, 0);
         this.map.setPosition(size.width/2 - this.map.width/2, 0);
+        this.createWallsColliders();
 
         g_sharedGameLayer = this.map;
 
@@ -82,7 +83,22 @@ var SceneLevelEndless = cc.Layer.extend({
         Enemy.preSet();
     },
 
-    addKeyboardListener:function (){
+    createWallsColliders: function () {
+        var wallLayer = this.map.getLayer("wall");
+        for (var i = 0; i < 25; i++) {
+            for (var j = 0; j < 25; j++) {
+                var sprite = wallLayer.getTileAt(cc.p(i, j));
+                if (!sprite) continue;
+                var k = Math.floor(Math.random() * 2) + 1;
+                if (i === 0 || i === 24 || j === 0 || j === 24) k = 0;
+                var wall = new Wall(sprite, BC.WallType[k]);
+                this.map.addChild(wall, 0, 5000);
+                BC.CONTAINER.WALLS.push(wall);
+            }
+        }
+    },
+
+    addKeyboardListener:function () {
         if (cc.sys.capabilities.hasOwnProperty('keyboard')) {
             cc.eventManager.addListener({
                 event: cc.EventListener.KEYBOARD,
@@ -111,6 +127,7 @@ var SceneLevelEndless = cc.Layer.extend({
     update:function (dt) {
         if (this._state === STATE_PLAYING) {
             this.checkIsCollide();
+            this.checkIsBlocked();
             this.updateUI();
             this.checkPlayerDied();
             this.spawnEnemies(dt);
@@ -146,6 +163,10 @@ var SceneLevelEndless = cc.Layer.extend({
                 }
             }
         }
+    },
+
+    checkIsBlocked: function () {
+
     },
 
     updateUI:function () {

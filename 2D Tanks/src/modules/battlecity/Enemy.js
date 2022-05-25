@@ -12,6 +12,12 @@ var Enemy = cc.Sprite.extend({
     _HP: 1,
     enemyType: null,
     moveDirection: null,
+    isBlocked: {
+        LEFT: false,
+        RIGHT: false,
+        UP: false,
+        DOWN: false
+    },
 
     ctor: function (enemyType) {
         this.enemyType = enemyType;

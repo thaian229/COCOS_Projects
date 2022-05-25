@@ -17,6 +17,12 @@ var Player = cc.Sprite.extend({
         y: 32 * 10
     },
     active: true,
+    isBlocked: {
+        LEFT: false,
+        RIGHT: false,
+        UP: false,
+        DOWN: false
+    },
 
     ctor: function () {
         this._super("battlecity/sprites/color_a/Hull_01.png");

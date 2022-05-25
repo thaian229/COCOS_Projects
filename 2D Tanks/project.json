@@ -44,6 +44,7 @@
         "src/modules/battlecity/Player.js",
         "src/modules/battlecity/scenes/SceneLevelEndless.js",
         "src/modules/battlecity/scenes/SceneMenu.js",
+        "src/modules/battlecity/Wall.js",
         "src/modules/testnetwork/network/Network.js",
         "src/modules/testnetwork/network/Packet.js",
         "src/modules/testnetwork/ScreenNetwork.js"
