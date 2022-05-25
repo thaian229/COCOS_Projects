@@ -76,7 +76,7 @@ var Enemy = cc.Sprite.extend({
 
     collideRect:function (x, y) {
         var w = this.width * BC.SCALING, h = this.height * BC.SCALING;
-        return cc.rect(x - w / 2, y - h / 2, w, h);
+        return cc.rect(x - w / 2 + 3, y - h / 2 + 3, w - 6, h - 6);
     },
 
     resetBlocked: function () {

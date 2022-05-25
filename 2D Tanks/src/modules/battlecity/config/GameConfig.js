@@ -5,10 +5,12 @@ var BC = BC || {};
 BC.SCALING = 0.2;
 BC.BULLET_OFFSET = 35;
 
+BC.TILE_SIZE = 32;
+
 // Map size
 BC.MAP_SIZE = {
-    height: 32 * 25,
-    width: 32 * 25
+    height: BC.TILE_SIZE * 25,
+    width: BC.TILE_SIZE * 25
 };
 
 //game state
@@ -50,7 +52,7 @@ BC.CONTAINER = {
 };
 
 //bullet speed and directions
-BC.BULLET_SPEED = 32 * 6;
+BC.BULLET_SPEED = BC.TILE_SIZE * 6;
 
 // Rotation
 BC.ROTATION = {
@@ -93,8 +95,8 @@ BC.DIRECTION = {
 
 //bullet type
 BC.BULLET_TYPE = {
-    PLAYER:1,
-    ENEMY:2
+    PLAYER: 1,
+    ENEMY: 2
 };
 
 // the counter of active enemies
@@ -110,7 +112,7 @@ BC.EnemyType = [
         gunPath: "battlecity/sprites/color_c/Gun_03.png",
         MaxHP: 2,
         scoreValue: 125,
-        moveSpeed: 32 * 4,
+        moveSpeed: BC.TILE_SIZE * 4,
         fireRate: 3.0,
     },
     {
@@ -119,7 +121,7 @@ BC.EnemyType = [
         gunPath: "battlecity/sprites/color_d/Gun_08.png",
         MaxHP: 3,
         scoreValue: 225,
-        moveSpeed: 32 * 3,
+        moveSpeed: BC.TILE_SIZE * 3,
         fireRate: 2.0
     }
 ];

@@ -35,7 +35,7 @@ var Bullet = cc.Sprite.extend({
 
     // Get collision detect rect for checking
     collideRect: function (x, y) {
-        return cc.rect(x - 3, y - 3, 6, 6);
+        return cc.rect(x - 2, y - 2, 4, 4);
     }
 });
 

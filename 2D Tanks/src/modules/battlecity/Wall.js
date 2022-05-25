@@ -37,6 +37,6 @@ var Wall = cc.Node.extend({
 
     // Get collision detect rect for checking
     collideRect: function (x, y) {
-        return cc.rect(x, y, 32, 32);
+        return cc.rect(x + 2, y + 2, 32 - 4, 32 - 4);
     }
 });

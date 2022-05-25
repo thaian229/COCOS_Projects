@@ -23,12 +23,12 @@ var SceneLevelEndless = cc.Layer.extend({
     _beginPos: 0,
     isMouseDown: false,
 
-    ctor:function () {
+    ctor: function () {
         this._super();
         this.loadGui();
     },
 
-    loadGui:function () {
+    loadGui: function () {
         this.removeAllChildren();
         var size = cc.winSize;
 
@@ -45,7 +45,7 @@ var SceneLevelEndless = cc.Layer.extend({
         // Add tilemap
         this.map = cc.TMXTiledMap.create("battlecity/TileMap/BC_1.tmx");
         this.addChild(this.map, 0);
-        this.map.setPosition(size.width/2 - this.map.width/2, 0);
+        this.map.setPosition(size.width / 2 - this.map.width / 2, 0);
         this.createWallsColliders();
 
         g_sharedGameLayer = this.map;
@@ -74,7 +74,7 @@ var SceneLevelEndless = cc.Layer.extend({
         this.addChild(this.scoreLabel, 10);
 
         // Add button back
-        var btnBack = gv.commonButton(100, 64, size.width - 70, 52,"Back");
+        var btnBack = gv.commonButton(100, 64, size.width - 70, 52, "Back");
         this.addChild(btnBack, 10);
         btnBack.addClickEventListener(this.onSelectBack.bind(this));
 
@@ -99,7 +99,7 @@ var SceneLevelEndless = cc.Layer.extend({
         }
     },
 
-    addKeyboardListener:function () {
+    addKeyboardListener: function () {
         if (cc.sys.capabilities.hasOwnProperty('keyboard')) {
             cc.eventManager.addListener({
                 event: cc.EventListener.KEYBOARD,
@@ -110,8 +110,7 @@ var SceneLevelEndless = cc.Layer.extend({
                         BC.KEYS[cc.KEY.d] = false;
                         BC.KEYS[cc.KEY.left] = false;
                         BC.KEYS[cc.KEY.right] = false;
-                    }
-                    else if (key === cc.KEY.a || key === cc.KEY.d || key === cc.KEY.left || key === cc.KEY.right) {
+                    } else if (key === cc.KEY.a || key === cc.KEY.d || key === cc.KEY.left || key === cc.KEY.right) {
                         BC.KEYS[cc.KEY.w] = false;
                         BC.KEYS[cc.KEY.s] = false;
                         BC.KEYS[cc.KEY.up] = false;
@@ -125,7 +124,7 @@ var SceneLevelEndless = cc.Layer.extend({
         }
     },
 
-    update:function (dt) {
+    update: function (dt) {
         if (this._state === STATE_PLAYING) {
             this.checkIsCollide();
             this.checkIsBlocked();
@@ -135,7 +134,7 @@ var SceneLevelEndless = cc.Layer.extend({
         }
     },
 
-    checkIsCollide:function () {
+    checkIsCollide: function () {
         var enemyNode, bulletNode;
 
         // check collide of Player's bullet & Enemies
@@ -173,10 +172,10 @@ var SceneLevelEndless = cc.Layer.extend({
         for (i = 0; i < BC.CONTAINER.WALLS.length; i++) {
             wallNode = BC.CONTAINER.WALLS[i];
             if (wallNode.active && this.collide(player, wallNode)) {
-                if (wallNode.x + 16 >= player.x + 32 && Math.abs(wallNode.y + 16 - player.y) <= 32) player.isBlocked.RIGHT = true;
-                if (wallNode.x + 16 <= player.x - 32 && Math.abs(wallNode.y + 16 - player.y) <= 32) player.isBlocked.LEFT = true;
-                if (wallNode.y + 16 >= player.y + 32 && Math.abs(wallNode.x + 16 - player.x) <= 32) player.isBlocked.UP = true;
-                if (wallNode.y + 16 <= player.y - 32 && Math.abs(wallNode.x + 16 - player.x) <= 32) player.isBlocked.DOWN = true;
+                if (wallNode.x + BC.TILE_SIZE / 2 >= player.x + BC.TILE_SIZE && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - player.y) <= BC.TILE_SIZE) player.isBlocked.RIGHT = true;
+                if (wallNode.x + BC.TILE_SIZE / 2 <= player.x - BC.TILE_SIZE && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - player.y) <= BC.TILE_SIZE) player.isBlocked.LEFT = true;
+                if (wallNode.y + BC.TILE_SIZE / 2 >= player.y + BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - player.x) <= BC.TILE_SIZE) player.isBlocked.UP = true;
+                if (wallNode.y + BC.TILE_SIZE / 2 <= player.y - BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - player.x) <= BC.TILE_SIZE) player.isBlocked.DOWN = true;
             }
         }
 
@@ -189,23 +188,23 @@ var SceneLevelEndless = cc.Layer.extend({
             for (j = 0; j < BC.CONTAINER.WALLS.length; j++) {
                 wallNode = BC.CONTAINER.WALLS[j];
                 if (wallNode.active && this.collide(enemyNode, wallNode)) {
-                    if (wallNode.x + 16 >= enemyNode.x + 32 && Math.abs(wallNode.y + 16 - enemyNode.y) <= 32) enemyNode.isBlocked.RIGHT = true;
-                    if (wallNode.x + 16 <= enemyNode.x - 32 && Math.abs(wallNode.y + 16 - enemyNode.y) <= 32) enemyNode.isBlocked.LEFT = true;
-                    if (wallNode.y + 16 >= enemyNode.y + 32 && Math.abs(wallNode.x + 16 - enemyNode.x) <= 32) enemyNode.isBlocked.UP = true;
-                    if (wallNode.y + 16 <= enemyNode.y - 32 && Math.abs(wallNode.x + 16 - enemyNode.x) <= 32) enemyNode.isBlocked.DOWN = true;
+                    if (wallNode.x + BC.TILE_SIZE / 2 >= enemyNode.x + BC.TILE_SIZE && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - enemyNode.y) <= BC.TILE_SIZE) enemyNode.isBlocked.RIGHT = true;
+                    if (wallNode.x + BC.TILE_SIZE / 2 <= enemyNode.x - BC.TILE_SIZE && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - enemyNode.y) <= BC.TILE_SIZE) enemyNode.isBlocked.LEFT = true;
+                    if (wallNode.y + BC.TILE_SIZE / 2 >= enemyNode.y + BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - enemyNode.x) <= BC.TILE_SIZE) enemyNode.isBlocked.UP = true;
+                    if (wallNode.y + BC.TILE_SIZE / 2 <= enemyNode.y - BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - enemyNode.x) <= BC.TILE_SIZE) enemyNode.isBlocked.DOWN = true;
                 }
             }
         }
     },
 
-    updateUI:function () {
+    updateUI: function () {
         if (this._tmpScore < BC.SCORE) {
             this._tmpScore++;
         }
         this.scoreLabel.setString("Score: " + this._tmpScore);
     },
 
-    checkPlayerDied:function () {
+    checkPlayerDied: function () {
         var player = this._player;
         if (player.HP <= 0) {
             this._state = STATE_GAMEOVER;
@@ -236,7 +235,7 @@ var SceneLevelEndless = cc.Layer.extend({
         }
     },
 
-    collide:function (a, b) {
+    collide: function (a, b) {
         var ax = a.x, ay = a.y, bx = b.x, by = b.y;
         if (Math.abs(ax - bx) > MAX_CONTAINT_WIDTH || Math.abs(ay - by) > MAX_CONTAINT_HEIGHT)
             return false;
@@ -246,17 +245,16 @@ var SceneLevelEndless = cc.Layer.extend({
         return cc.rectIntersectsRect(aRect, bRect);
     },
 
-    onGameOver:function () {
+    onGameOver: function () {
         // TODO: GameOver Scene
         fr.view(SceneMenu);
     },
 
-    onEnter:function () {
+    onEnter: function () {
         this._super();
     },
 
-    onSelectBack:function (sender)
-    {
+    onSelectBack: function (sender) {
         fr.view(SceneMenu);
     }
 });

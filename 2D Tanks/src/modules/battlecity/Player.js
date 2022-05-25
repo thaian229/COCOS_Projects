@@ -8,13 +8,13 @@ var Player = cc.Sprite.extend({
     _deltaTimeLastShot: 0.0,
     _moveDirection: BC.DIRECTION.UP,
     fireRate: 1.0,
-    speed: 32 * 4,
+    speed: BC.TILE_SIZE * 4,
     HP: 3,
     canBeAttacked: true,
     zOrder: 1,
     spawnLocation: {
-        x: 32 * 14,
-        y: 32 * 10
+        x: BC.TILE_SIZE * 14,
+        y: BC.TILE_SIZE * 10
     },
     active: true,
     isBlocked: {
@@ -88,7 +88,7 @@ var Player = cc.Sprite.extend({
 
     collideRect:function (x, y) {
         var w = this.width * BC.SCALING, h = this.height * BC.SCALING;
-        return cc.rect(x - w / 2, y - h / 2, w, h);
+        return cc.rect(x - w / 2 + 3, y - h / 2 + 3, w - 6, h - 6);
     },
 
     hurt:function () {
