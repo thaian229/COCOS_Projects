@@ -14,7 +14,8 @@ var SceneLevelEndless = cc.Layer.extend({
     _explosions: null,
     _state: STATE_PLAYING,
     map: null,
-    explosionAnimation: [],
+    playerSpawnPoint: null,
+    enemySpawnPoints: [],
     scoreLabel: null,
     _tmpScore: 0,
     _spawnRate: 2.0,
@@ -46,7 +47,9 @@ var SceneLevelEndless = cc.Layer.extend({
         this.map = cc.TMXTiledMap.create("battlecity/TileMap/BC_1.tmx");
         this.addChild(this.map, 0);
         this.map.setPosition(size.width / 2 - this.map.width / 2, 0);
+
         this.createWallsColliders();
+        this.getTMXObjects();
 
         g_sharedGameLayer = this.map;
 
@@ -56,6 +59,8 @@ var SceneLevelEndless = cc.Layer.extend({
         // Player
         this._player = new Player();
         this.map.addChild(this._player, this._player.zOrder, BC.UNIT_TAG.PLAYER);
+        this._player.x = this.playerSpawnPoint.x + BC.TILE_SIZE;
+        this._player.y = this.playerSpawnPoint.y + BC.TILE_SIZE;
 
         // Event listeners
         this.addKeyboardListener();
@@ -97,6 +102,15 @@ var SceneLevelEndless = cc.Layer.extend({
                 wall.visible = true;
                 BC.CONTAINER.WALLS.push(wall);
             }
+        }
+    },
+
+    getTMXObjects: function () {
+        var objGroup = this.map.getObjectGroup("object");
+        this.playerSpawnPoint = objGroup.getObject("p_sp");
+        for (var i = 1; i <= 4; i++) {
+            var enemySpawn = objGroup.getObject("e_sp_" + i);
+            this.enemySpawnPoints.push(enemySpawn);
         }
     },
 
@@ -253,13 +267,9 @@ var SceneLevelEndless = cc.Layer.extend({
             this._deltaTimeSinceSpawned = 0.0;
             var enemyTypeIndex = Math.floor(Math.random() * BC.EnemyType.length);
             var addEnemy = Enemy.getOrCreateEnemy(BC.EnemyType[enemyTypeIndex]);
-            if (enemyTypeIndex % 2 === 0) {
-                addEnemy.x = 32 * 2;
-                addEnemy.y = Math.floor(Math.random() * 800 - 32 * 8) + 32 * 4;
-            } else {
-                addEnemy.x = Math.floor(Math.random() * 800 - 32 * 8) + 32 * 4;
-                addEnemy.y = 32 * 2;
-            }
+            var spawnPointIndex = Math.floor(Math.random() * this.enemySpawnPoints.length);
+            addEnemy.x = this.enemySpawnPoints[spawnPointIndex].x + BC.TILE_SIZE;
+            addEnemy.y = this.enemySpawnPoints[spawnPointIndex].y + BC.TILE_SIZE;
         }
     },
 

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modules/battlecity/scenes/SceneGameOver.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/battlecity/TileMap/BC_1.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/res/battlecity/TileMap/BC_1.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/battlecity/scenes/SceneLevelEndless.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/scenes/SceneLevelEndless.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/battlecity/scenes/SceneMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/battlecity/scenes/SceneMenu.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -724,7 +720,7 @@
       <workItem from="1653452978988" duration="1448000" />
       <workItem from="1653465511248" duration="13208000" />
       <workItem from="1653479147307" duration="1001000" />
-      <workItem from="1653484708510" duration="1296000" />
+      <workItem from="1653484708510" duration="2238000" />
     </task>
     <servers />
   </component>
