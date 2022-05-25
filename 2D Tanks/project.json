@@ -42,6 +42,7 @@
         "src/modules/battlecity/config/GameConfig.js",
         "src/modules/battlecity/Enemy.js",
         "src/modules/battlecity/Player.js",
+        "src/modules/battlecity/scenes/SceneGameOver.js",
         "src/modules/battlecity/scenes/SceneLevelEndless.js",
         "src/modules/battlecity/scenes/SceneMenu.js",
         "src/modules/battlecity/Wall.js",

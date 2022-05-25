@@ -24,7 +24,6 @@ var Bullet = cc.Sprite.extend({
     },
 
     destroy: function () {
-        // TODO: Bullet Hit Effect
         this.active = false;
         this.visible = false;
     },

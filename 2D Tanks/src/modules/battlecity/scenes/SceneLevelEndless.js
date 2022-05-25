@@ -274,8 +274,7 @@ var SceneLevelEndless = cc.Layer.extend({
     },
 
     onGameOver: function () {
-        // TODO: GameOver Scene
-        fr.view(SceneMenu);
+        fr.view(SceneGameOver);
     },
 
     onEnter: function () {
