@@ -81,7 +81,7 @@ var Player = cc.Sprite.extend({
     },
 
     collideRect:function (x, y) {
-        var w = this.width, h = this.height;
+        var w = this.width * BC.SCALING, h = this.height * BC.SCALING;
         return cc.rect(x - w / 2, y - h / 2, w, h);
     },
 
@@ -92,6 +92,7 @@ var Player = cc.Sprite.extend({
     },
 
     destroy:function () {
-        // TODO
+        this.active = false;
+        this.visible = false;
     }
 });

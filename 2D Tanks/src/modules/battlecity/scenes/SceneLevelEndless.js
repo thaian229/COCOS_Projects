@@ -4,6 +4,8 @@
 
 STATE_PLAYING = 0;
 STATE_GAMEOVER = 1;
+MAX_CONTAINT_WIDTH = 75;
+MAX_CONTAINT_HEIGHT = 75;
 
 var g_sharedGameLayer;
 
@@ -14,7 +16,9 @@ var SceneLevelEndless = cc.Layer.extend({
     map: null,
     explosionAnimation: [],
     scoreLabel: null,
-
+    _tmpScore: 0,
+    _spawnRate: 2.0,
+    _deltaTimeSinceSpawned: 0.0,
     _itemMenu: null,
     _beginPos: 0,
     isMouseDown: false,
@@ -57,7 +61,16 @@ var SceneLevelEndless = cc.Layer.extend({
 
         // schedule
         this.scheduleUpdate();
-        this.schedule(this.scoreCounter, 1);
+
+        // Add score counter
+        this.scoreLabel = cc.LabelTTF("Score: 0", "battlecity/Pixeboy.ttf", 48);
+        this.scoreLabel.attr({
+            anchorX: 1,
+            anchorY: 0,
+            x: size.width - 25,
+            y: size.height - 50
+        });
+        this.addChild(this.scoreLabel, 10);
 
         // Add button back
         var btnBack = gv.commonButton(100, 64, size.width - 70, 52,"Back");
@@ -95,31 +108,51 @@ var SceneLevelEndless = cc.Layer.extend({
         }
     },
 
-    scoreCounter:function () {
-        if (this._state === STATE_PLAYING) {
-            // TODO
-        }
-    },
-
     update:function (dt) {
         if (this._state === STATE_PLAYING) {
             this.checkIsCollide();
-            this.removeInactiveUnit(dt);
             this.updateUI();
             this.checkPlayerDied();
+            this.spawnEnemies(dt);
         }
     },
 
     checkIsCollide:function () {
-        // TODO
-    },
+        var enemyNode, bulletNode;
 
-    removeInactiveUnit:function (dt) {
-        // TODO
+        // check collide of Player's bullet & Enemies
+        var i, player = this._player;
+        for (i = 0; i < BC.CONTAINER.ENEMIES.length; i++) {
+            enemyNode = BC.CONTAINER.ENEMIES[i];
+            if (!enemyNode.active)
+                continue;
+
+            for (var j = 0; j < BC.CONTAINER.PLAYER_BULLETS.length; j++) {
+                bulletNode = BC.CONTAINER.PLAYER_BULLETS[j];
+                if (bulletNode.active && this.collide(bulletNode, enemyNode)) {
+                    bulletNode.hurt();
+                    enemyNode.hurt();
+                }
+            }
+        }
+
+        // Check collide of Enemies' bullets & Player
+        for (i = 0; i < BC.CONTAINER.ENEMY_BULLETS.length; i++) {
+            bulletNode = BC.CONTAINER.ENEMY_BULLETS[i];
+            if (bulletNode.active && this.collide(bulletNode, player)) {
+                if (player.active) {
+                    bulletNode.hurt();
+                    player.hurt();
+                }
+            }
+        }
     },
 
     updateUI:function () {
-        // TODO
+        if (this._tmpScore < BC.SCORE) {
+            this._tmpScore++;
+        }
+        this.scoreLabel.setString("Score: " + this._tmpScore);
     },
 
     checkPlayerDied:function () {
@@ -134,12 +167,38 @@ var SceneLevelEndless = cc.Layer.extend({
         }
     },
 
+    spawnEnemies: function (dt) {
+        if (BC.ACTIVE_ENEMIES >= BC.MAX_ENEMIES) {
+            return;
+        }
+        this._deltaTimeSinceSpawned += dt;
+        if (this._deltaTimeSinceSpawned >= this._spawnRate) {
+            this._deltaTimeSinceSpawned = 0.0;
+            var enemyTypeIndex = Math.floor(Math.random() * BC.EnemyType.length);
+            var addEnemy = Enemy.getOrCreateEnemy(BC.EnemyType[enemyTypeIndex]);
+            if (enemyTypeIndex % 2 === 0) {
+                addEnemy.x = 32 * 2;
+                addEnemy.y = Math.floor(Math.random() * 800 - 32 * 8) + 32 * 4;
+            } else {
+                addEnemy.x = Math.floor(Math.random() * 800 - 32 * 8) + 32 * 4;
+                addEnemy.y = 32 * 2;
+            }
+        }
+    },
+
     collide:function (a, b) {
-        // TODO
+        var ax = a.x, ay = a.y, bx = b.x, by = b.y;
+        if (Math.abs(ax - bx) > MAX_CONTAINT_WIDTH || Math.abs(ay - by) > MAX_CONTAINT_HEIGHT)
+            return false;
+        // get 2 collider Rect (box) and check intersection
+        var aRect = a.collideRect(ax, ay);
+        var bRect = b.collideRect(bx, by);
+        return cc.rectIntersectsRect(aRect, bRect);
     },
 
     onGameOver:function () {
-        // TODO
+        // TODO: GameOver Scene
+        fr.view(SceneMenu);
     },
 
     onEnter:function () {

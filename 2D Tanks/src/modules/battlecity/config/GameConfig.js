@@ -1,3 +1,4 @@
+
 var BC = BC || {};
 
 // Character scaling
@@ -45,7 +46,6 @@ BC.CONTAINER = {
     ENEMIES:[],
     ENEMY_BULLETS:[],
     PLAYER_BULLETS:[],
-    EXPLOSIONS:[]
 };
 
 //bullet speed and directions
@@ -101,3 +101,24 @@ BC.ACTIVE_ENEMIES = 0;
 
 // max concurrent enemies
 BC.MAX_ENEMIES = 6;
+
+BC.EnemyType = [
+    {
+        type: 0,
+        hullPath: "battlecity/sprites/color_c/Hull_02.png",
+        gunPath: "battlecity/sprites/color_c/Gun_03.png",
+        MaxHP: 2,
+        scoreValue: 125,
+        moveSpeed: 32 * 4,
+        fireRate: 3.0,
+    },
+    {
+        type: 1,
+        hullPath: "battlecity/sprites/color_d/Hull_06.png",
+        gunPath: "battlecity/sprites/color_d/Gun_08.png",
+        MaxHP: 3,
+        scoreValue: 225,
+        moveSpeed: 32 * 3,
+        fireRate: 2.0
+    }
+];

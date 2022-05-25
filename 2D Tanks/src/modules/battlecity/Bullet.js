@@ -24,7 +24,7 @@ var Bullet = cc.Sprite.extend({
     },
 
     destroy: function () {
-        // TODO
+        // TODO: Bullet Hit Effect
         this.active = false;
         this.visible = false;
     },
@@ -39,43 +39,43 @@ var Bullet = cc.Sprite.extend({
     }
 });
 
-Bullet.getOrCreateBullet = function (moveDirection, zOrder, mode) {
+Bullet.getOrCreateBullet = function (moveDirection, zOrder, bullet_source) {
     /**/
-    var selChild = null;
-    if (mode === BC.UNIT_TAG.PLAYER_BULLET) {
+    var bullet = null;
+    if (bullet_source === BC.UNIT_TAG.PLAYER_BULLET) {
         for (var j = 0; j < BC.CONTAINER.PLAYER_BULLETS.length; j++) {
-            selChild = BC.CONTAINER.PLAYER_BULLETS[j];
-            if (selChild.active === false) {
-                selChild.visible = true;
-                selChild.HP = 1;
-                selChild.active = true;
-                selChild.moveDirection = moveDirection;
-                selChild.setRotation(selChild.moveDirection.rotation);
-                return selChild;
+            bullet = BC.CONTAINER.PLAYER_BULLETS[j];
+            if (bullet.active === false) {
+                bullet.visible = true;
+                bullet.HP = 1;
+                bullet.active = true;
+                bullet.moveDirection = moveDirection;
+                bullet.setRotation(bullet.moveDirection.rotation);
+                return bullet;
             }
         }
     }
     else {
         for (var j = 0; j < BC.CONTAINER.ENEMY_BULLETS.length; j++) {
-            selChild = BC.CONTAINER.ENEMY_BULLETS[j];
-            if (selChild.active === false) {
-                selChild.visible = true;
-                selChild.HP = 1;
-                selChild.active = true;
-                selChild.moveDirection = moveDirection;
-                selChild.setRotation(selChild.moveDirection.rotation);
-                return selChild;
+            bullet = BC.CONTAINER.ENEMY_BULLETS[j];
+            if (bullet.active === false) {
+                bullet.visible = true;
+                bullet.HP = 1;
+                bullet.active = true;
+                bullet.moveDirection = moveDirection;
+                bullet.setRotation(bullet.moveDirection.rotation);
+                return bullet;
             }
         }
     }
-    selChild = Bullet.create(moveDirection, zOrder, mode);
-    return selChild;
+    bullet = Bullet.create(moveDirection, zOrder, bullet_source);
+    return bullet;
 };
 
-Bullet.create = function (moveDirection, zOrder, mode) {
+Bullet.create = function (moveDirection, zOrder, bullet_source) {
     var bullet = new Bullet(moveDirection);
-    g_sharedGameLayer.addChild(bullet, zOrder, mode);
-    if (mode === BC.UNIT_TAG.PLAYER_BULLET) {
+    g_sharedGameLayer.addChild(bullet, zOrder, bullet_source);
+    if (bullet_source === BC.UNIT_TAG.PLAYER_BULLET) {
         BC.CONTAINER.PLAYER_BULLETS.push(bullet);
     } else {
         BC.CONTAINER.ENEMY_BULLETS.push(bullet);

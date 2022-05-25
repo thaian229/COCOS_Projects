@@ -4,10 +4,12 @@
 
 var Enemy = cc.Sprite.extend({
     _gunSprite: null,
+    _deltaSinceShoot: 0.0,
+    _fireRate: 2.0,
     eID: 0,
-    active: true,
+    active: false,
     zOrder: 1,
-    HP: 1,
+    _HP: 1,
     enemyType: null,
     moveDirection: null,
 
@@ -17,80 +19,87 @@ var Enemy = cc.Sprite.extend({
 
         // Init fields
         this.moveDirection = BC.BULLET_DIRECTION.UP;
-        this.HP = this.enemyType.HP;
+        this._HP = this.enemyType.MaxHP;
+        this._fireRate = this.enemyType.fireRate;
 
         // Add gun
         this._gunSprite = cc.Sprite.create(this.enemyType.gunPath);
         this.addChild(this._gunSprite, this.zOrder + 1);
         this._gunSprite.setPosition(this.width / 2, this.height / 2);
 
+
         // Schedule
-        this.scheduleUpdate();
-        this.schedule(this.shoot, this.enemyType.fireRate);
+        // this.scheduleUpdate();
     },
 
     update: function (dt) {
-        this.updateMove();
-        if (this.HP <= 0) {
-            this.active = false;
+        this.updateMove(dt);
+        this.shoot(dt);
+        if (this._HP <= 0) {
             this.destroy();
         }
     },
 
     updateMove: function (dt) {
-        // TODO
+        // TODO: Bot's movement
     },
 
     destroy:function () {
-        BC.SCORE += this.scoreValue;
-        // TODO
+        BC.SCORE += this.enemyType.scoreValue;
+        // Hide enemy
         this.visible = false;
         this.active = false;
-        this.stopAllActions();
-        this.unschedule(this.shoot);
+        this.unscheduleUpdate();
         BC.ACTIVE_ENEMIES--;
     },
 
-    shoot:function () {
-        var x = this.x, y = this.y;
-        var b = Bullet.getOrCreateBullet(this.moveDirection, 2, BC.UNIT_TAG.ENEMY_BULLET);
-        b.x = x + this.moveDirection.offset_x;
-        b.y = y + this.moveDirection.offset_y;
+    shoot:function (dt) {
+        this._deltaSinceShoot += dt;
+        if (this._deltaSinceShoot >= this._fireRate) {
+            var x = this.x, y = this.y;
+            var b = Bullet.getOrCreateBullet(this.moveDirection, 2, BC.UNIT_TAG.ENEMY_BULLET);
+            b.x = x + this.moveDirection.offset_x;
+            b.y = y + this.moveDirection.offset_y;
+            this._deltaSinceShoot = 0.0;
+        }
     },
 
     hurt:function () {
-        this.HP--;
+        this._HP--;
     },
 
     collideRect:function (x, y) {
-        var w = this.width, h = this.height;
+        var w = this.width * BC.SCALING, h = this.height * BC.SCALING;
         return cc.rect(x - w / 2, y - h / 2, w, h);
     }
 });
 
 Enemy.getOrCreateEnemy = function (enemyType) {
-    var selChild = null;
+    var enemy = null;
     for (var j = 0; j < BC.CONTAINER.ENEMIES.length; j++) {
-        selChild = BC.CONTAINER.ENEMIES[j];
+        enemy = BC.CONTAINER.ENEMIES[j];
 
-        if (selChild.active === false && selChild.enemyType === enemyType) {
-            selChild.HP = enemyType.HP;
-            selChild.active = true;
-
-            selChild.schedule(selChild.shoot, selChild.delayTime);
-            selChild.visible = true;
-            MW.ACTIVE_ENEMIES++;
-            return selChild;
+        if (enemy.active === false && enemy.enemyType === enemyType) {
+            enemy._HP = enemyType.MaxHP;
+            enemy.active = true;
+            enemy.visible = true;
+            enemy.scheduleUpdate();
+            BC.ACTIVE_ENEMIES++;
+            return enemy;
         }
     }
-    selChild = Enemy.create(enemyType);
-    MW.ACTIVE_ENEMIES++;
-    return selChild;
+    enemy = Enemy.create(enemyType);
+    enemy.visible = true;
+    enemy.active = true;
+    enemy.scheduleUpdate();
+    BC.ACTIVE_ENEMIES++;
+    return enemy;
 };
 
 Enemy.create = function (enemyType) {
     var enemy = new Enemy(enemyType);
     g_sharedGameLayer.addChild(enemy, enemy.zOrder, BC.UNIT_TAG.ENEMY);
+    enemy.setScale(BC.SCALING);
     BC.CONTAINER.ENEMIES.push(enemy);
     return enemy;
 };
@@ -98,12 +107,10 @@ Enemy.create = function (enemyType) {
 Enemy.preSet = function () {
     var enemy = null;
     for (var i = 0; i < 3; i++) {
-        for (var j = 0; j < EnemyType.length; j++) {
-            enemy = Enemy.create(EnemyType[j]);
+        for (var j = 0; j < BC.EnemyType.length; j++) {
+            enemy = Enemy.create(BC.EnemyType[j]);
             enemy.visible = false;
             enemy.active = false;
-            enemy.stopAllActions();
-            enemy.unscheduleAllCallbacks();
         }
     }
 };
