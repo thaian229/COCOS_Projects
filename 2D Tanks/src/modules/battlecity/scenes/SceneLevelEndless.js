@@ -221,23 +221,6 @@ var SceneLevelEndless = cc.Layer.extend({
                 if (wallNode.y + BC.TILE_SIZE / 2 < player.y - BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - player.x) < BC.TILE_SIZE) player.isBlocked.DOWN = true;
             }
         }
-
-        // Check enemies blocked
-        for (i = 0; i < BC.CONTAINER.ENEMIES.length; i++) {
-            enemyNode = BC.CONTAINER.ENEMIES[i];
-            if (!enemyNode.active) continue;
-
-            enemyNode.resetBlocked();
-            for (j = 0; j < BC.CONTAINER.WALLS.length; j++) {
-                wallNode = BC.CONTAINER.WALLS[j];
-                if (wallNode.active && this.collide(enemyNode, wallNode)) {
-                    if (wallNode.x + BC.TILE_SIZE / 2 >= enemyNode.x && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - enemyNode.y) < BC.TILE_SIZE) enemyNode.isBlocked.RIGHT = true;
-                    if (wallNode.x + BC.TILE_SIZE / 2 < enemyNode.x && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - enemyNode.y) < BC.TILE_SIZE) enemyNode.isBlocked.LEFT = true;
-                    if (wallNode.y + BC.TILE_SIZE / 2 >= enemyNode.y && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - enemyNode.x) < BC.TILE_SIZE) enemyNode.isBlocked.UP = true;
-                    if (wallNode.y + BC.TILE_SIZE / 2 < enemyNode.y && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - enemyNode.x) < BC.TILE_SIZE) enemyNode.isBlocked.DOWN = true;
-                }
-            }
-        }
     },
 
     updateUI: function () {

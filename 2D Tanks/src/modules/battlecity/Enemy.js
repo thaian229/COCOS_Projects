@@ -70,6 +70,16 @@ var Enemy = cc.Sprite.extend({
     },
 
     updateMoveDirection: function () {
+        this.resetBlocked();
+        for (j = 0; j < BC.CONTAINER.WALLS.length; j++) {
+            var wallNode = BC.CONTAINER.WALLS[j];
+            if (wallNode.active && this.collide(this, wallNode)) {
+                if (wallNode.x + BC.TILE_SIZE / 2 >= this.x && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - this.y) < BC.TILE_SIZE) this.isBlocked.RIGHT = true;
+                if (wallNode.x + BC.TILE_SIZE / 2 < this.x && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - this.y) < BC.TILE_SIZE) this.isBlocked.LEFT = true;
+                if (wallNode.y + BC.TILE_SIZE / 2 >= this.y && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - this.x) < BC.TILE_SIZE) this.isBlocked.UP = true;
+                if (wallNode.y + BC.TILE_SIZE / 2 < this.y && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - this.x) < BC.TILE_SIZE) this.isBlocked.DOWN = true;
+            }
+        }
         if (
             (this._moveDirection === BC.DIRECTION.UP && this.isBlocked.UP)
             || (this._moveDirection === BC.DIRECTION.DOWN && this.isBlocked.DOWN)
@@ -123,6 +133,16 @@ var Enemy = cc.Sprite.extend({
     collideRect: function (x, y) {
         var w = this.width * BC.SCALING, h = this.height * BC.SCALING;
         return cc.rect(x - w / 2, y - h / 2, w, h);
+    },
+
+    collide: function (a, b) {
+        var ax = a.x, ay = a.y, bx = b.x, by = b.y;
+        if (Math.abs(ax - bx) > MAX_CONTAINT_WIDTH || Math.abs(ay - by) > MAX_CONTAINT_HEIGHT)
+            return false;
+        // get 2 collider Rect (box) and check intersection
+        var aRect = a.collideRect(ax, ay);
+        var bRect = b.collideRect(bx, by);
+        return cc.rectIntersectsRect(aRect, bRect);
     },
 
     resetBlocked: function () {
