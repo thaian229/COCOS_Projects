@@ -7,6 +7,8 @@ var Player = cc.Sprite.extend({
     _gunSprite: null,
     _deltaTimeLastShot: 0.0,
     _moveDirection: BC.DIRECTION.UP,
+    _lastHurtTime: 10.0,
+    _invulnerableFrameTime: 3.0,
     fireRate: 1.0,
     speed: BC.TILE_SIZE * 4,
     HP: 4,
@@ -44,6 +46,11 @@ var Player = cc.Sprite.extend({
     update: function (dt) {
         this.updateMove(dt);
         this.shoot(dt);
+
+        this._lastHurtTime += dt;
+        this.canBeAttacked = this._lastHurtTime >= this._invulnerableFrameTime;
+
+        this.setOpacity(this.canBeAttacked ? 255 : 100);
 
         if (this.HP <= 0) {
             this.active = false;
@@ -94,6 +101,7 @@ var Player = cc.Sprite.extend({
     hurt:function () {
         if (this.canBeAttacked) {
             this.HP--;
+            this._lastHurtTime = 0.0;
         }
     },
 

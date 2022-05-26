@@ -35,11 +35,12 @@ var Wall = cc.Node.extend({
     hurt: function () {
         if (this._wallType.isDestroyable) {
             this._HP--;
+            this.wallTileSprite.setOpacity(this._HP * 255 / this._wallType.MaxHP + 25 );
         }
     },
 
     // Get collision detect rect for checking
     collideRect: function (x, y) {
-        return cc.rect(x + 1, y + 1, 32 - 2, 32 - 2);
+        return cc.rect(x + 2, y + 2, 32 - 4, 32 - 4);
     }
 });
