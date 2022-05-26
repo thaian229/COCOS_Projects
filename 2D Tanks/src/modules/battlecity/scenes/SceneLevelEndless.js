@@ -38,7 +38,7 @@ var SceneLevelEndless = cc.Layer.extend({
         BC.CONTAINER.ENEMIES = [];
         BC.CONTAINER.ENEMY_BULLETS = [];
         BC.CONTAINER.PLAYER_BULLETS = [];
-        BC.CONTAINER.EXPLOSIONS = [];
+        BC.CONTAINER.WALLS = [];
         BC.ACTIVE_ENEMIES = 0;
 
         BC.SCORE = 0;
