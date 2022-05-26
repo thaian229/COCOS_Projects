@@ -74,10 +74,10 @@ var Enemy = cc.Sprite.extend({
         for (j = 0; j < BC.CONTAINER.WALLS.length; j++) {
             var wallNode = BC.CONTAINER.WALLS[j];
             if (wallNode.active && this.collide(this, wallNode)) {
-                if (wallNode.x + BC.TILE_SIZE / 2 >= this.x && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - this.y) < BC.TILE_SIZE) this.isBlocked.RIGHT = true;
-                if (wallNode.x + BC.TILE_SIZE / 2 < this.x && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - this.y) < BC.TILE_SIZE) this.isBlocked.LEFT = true;
-                if (wallNode.y + BC.TILE_SIZE / 2 >= this.y && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - this.x) < BC.TILE_SIZE) this.isBlocked.UP = true;
-                if (wallNode.y + BC.TILE_SIZE / 2 < this.y && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - this.x) < BC.TILE_SIZE) this.isBlocked.DOWN = true;
+                if (wallNode.x + BC.TILE_SIZE / 2 >= this.x + BC.TILE_SIZE && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - this.y) < BC.TILE_SIZE) this.isBlocked.RIGHT = true;
+                if (wallNode.x + BC.TILE_SIZE / 2 < this.x - BC.TILE_SIZE && Math.abs(wallNode.y + BC.TILE_SIZE / 2 - this.y) < BC.TILE_SIZE) this.isBlocked.LEFT = true;
+                if (wallNode.y + BC.TILE_SIZE / 2 >= this.y + BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - this.x) < BC.TILE_SIZE) this.isBlocked.UP = true;
+                if (wallNode.y + BC.TILE_SIZE / 2 < this.y - BC.TILE_SIZE && Math.abs(wallNode.x + BC.TILE_SIZE / 2 - this.x) < BC.TILE_SIZE) this.isBlocked.DOWN = true;
             }
         }
         if (

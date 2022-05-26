@@ -103,7 +103,7 @@ BC.BULLET_TYPE = {
 BC.ACTIVE_ENEMIES = 0;
 
 // max concurrent enemies
-BC.MAX_ENEMIES = 6;
+BC.MAX_ENEMIES = 7;
 
 BC.EnemyType = [
     {
@@ -111,7 +111,7 @@ BC.EnemyType = [
         hullPath: "battlecity/sprites/color_c/Hull_02.png",
         gunPath: "battlecity/sprites/color_c/Gun_03.png",
         MaxHP: 2,
-        scoreValue: 125,
+        scoreValue: 35,
         moveSpeed: BC.TILE_SIZE * 3,
         fireRate: 3.5,
     },
@@ -120,7 +120,7 @@ BC.EnemyType = [
         hullPath: "battlecity/sprites/color_d/Hull_06.png",
         gunPath: "battlecity/sprites/color_d/Gun_08.png",
         MaxHP: 3,
-        scoreValue: 225,
+        scoreValue: 50,
         moveSpeed: BC.TILE_SIZE * 2,
         fireRate: 2.5
     }

@@ -54,9 +54,6 @@ var SceneLevelEndless = cc.Layer.extend({
 
         g_sharedGameLayer = this.map;
 
-        // var objectGroup = map.getObjectGroup("object_layer");
-        // var play_spawn = objectGroup.getObjects()[0];
-
         // Player
         this._player = new Player();
         this.map.addChild(this._player, this._player.zOrder, BC.UNIT_TAG.PLAYER);
@@ -151,6 +148,7 @@ var SceneLevelEndless = cc.Layer.extend({
 
     update: function (dt) {
         if (this._state === STATE_PLAYING) {
+            this._spawnRate = 2.0 + 0.25 * BC.ACTIVE_ENEMIES;
             this.checkIsCollide();
             this.checkIsBlocked();
             this.updateUI();
@@ -286,12 +284,12 @@ var SceneLevelEndless = cc.Layer.extend({
             enemyNode = BC.CONTAINER.ENEMIES[i];
             if (!enemyNode.active) continue;
 
-            if (Math.abs(playerNode.x - enemyNode.x) < BC.TILE_SIZE / 3 && Math.abs(playerNode.y - enemyNode.y) > BC.TILE_SIZE / 2) {
+            if (Math.abs(playerNode.x - enemyNode.x) < BC.TILE_SIZE / 5 && Math.abs(playerNode.y - enemyNode.y) > BC.TILE_SIZE / 3) {
                 if (playerNode.y >= enemyNode.y) enemyNode._moveDirection = BC.DIRECTION.UP;
                 if (playerNode.y < enemyNode.y) enemyNode._moveDirection = BC.DIRECTION.DOWN;
             }
 
-            if (Math.abs(playerNode.y - enemyNode.y) < BC.TILE_SIZE / 3 && Math.abs(playerNode.x - enemyNode.x) > BC.TILE_SIZE / 2) {
+            if (Math.abs(playerNode.y - enemyNode.y) < BC.TILE_SIZE / 5 && Math.abs(playerNode.x - enemyNode.x) > BC.TILE_SIZE / 3) {
                 if (playerNode.x >= enemyNode.x) enemyNode._moveDirection = BC.DIRECTION.RIGHT;
                 if (playerNode.x < enemyNode.x) enemyNode._moveDirection = BC.DIRECTION.LEFT;
             }
