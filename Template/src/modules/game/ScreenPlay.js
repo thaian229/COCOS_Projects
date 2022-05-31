@@ -1,5 +1,5 @@
 /**
- * Simple Platform Level 1
+ * Simple Scene
  */
 
 var ScreenPlay = cc.Layer.extend({
@@ -7,23 +7,25 @@ var ScreenPlay = cc.Layer.extend({
     _beginPos: 0,
     isMouseDown: false,
 
-    ctor:function () {
+    ctor: function () {
         this._super();
         this.loadGui();
     },
-    loadGui:function () {
+
+    loadGui: function () {
         this.removeAllChildren();
         var size = cc.winSize;
 
-        var btnBack = gv.commonButton(100, 64, size.width - 70, 52,"Back");
+        var btnBack = gv.commonButton(100, 64, size.width - 70, 52, "Back");
         this.addChild(btnBack);
         btnBack.addClickEventListener(this.onSelectBack.bind(this));
     },
-    onEnter:function () {
+
+    onEnter: function () {
         this._super();
     },
-    onSelectBack:function(sender)
-    {
+
+    onSelectBack: function (sender) {
         fr.view(ScreenMenu);
     }
 });
