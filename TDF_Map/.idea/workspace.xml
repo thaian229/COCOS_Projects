@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/res/sprite/terrain/map_background_0001.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sprite/terrain/map_cell_0000.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sprite/terrain/map_cell_0002.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sprite/terrain/map_cell_0003.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sprite/terrain/map_decoration_rock_0001.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sprite/terrain/map_forest_obstacle_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/TDFConfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/map/Obstacle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/map/TDFMap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/map/Terrain.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/game/ScreenPlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/scene/ScenePlay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/mainmenu/ScreenMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/scene/SceneMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -716,7 +703,7 @@
       <workItem from="1652762411640" duration="1301000" />
       <workItem from="1653961304655" duration="946000" />
       <workItem from="1653962293651" duration="123000" />
-      <workItem from="1653962519847" duration="8455000" />
+      <workItem from="1653962519847" duration="9921000" />
     </task>
     <servers />
   </component>
