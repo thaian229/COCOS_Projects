@@ -305,6 +305,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JavaScript" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="options.lastSelected" value="web-ide.project.structure" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -695,7 +696,7 @@
       <workItem from="1652751681022" duration="1652000" />
       <workItem from="1652758400835" duration="2425000" />
       <workItem from="1652762411640" duration="1301000" />
-      <workItem from="1653961304655" duration="8000" />
+      <workItem from="1653961304655" duration="421000" />
     </task>
     <servers />
   </component>
