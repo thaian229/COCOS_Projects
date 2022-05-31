@@ -3,50 +3,27 @@
  */
 
 var ScreenMenu = cc.Layer.extend({
-    _itemMenu:null,
-    _beginPos:0,
-    isMouseDown:false,
+    _itemMenu: null,
+    _beginPos: 0,
+    isMouseDown: false,
 
-    ctor:function() {
+    ctor: function () {
         this._super();
         var size = cc.director.getVisibleSize();
 
-        var yBtn = 3*size.height/5;
+        var yBtn = 3 * size.height / 5;
 
-        var btnNetwork = gv.commonButton(200, 64, cc.winSize.width/4, yBtn,"Network");
-        this.addChild(btnNetwork);
-        btnNetwork.addClickEventListener(this.onSelectNetwork.bind(this));
-
-        var btnLocalization = gv.commonButton(200, 64, cc.winSize.width/2, yBtn,"Localize");
-        this.addChild(btnLocalization);
-        btnLocalization.addClickEventListener(this.onSelectLocalization.bind(this));
-
-        var btnDragonbones = gv.commonButton(200, 64, 3*cc.winSize.width/4, yBtn,"Dragonbone");
-        this.addChild(btnDragonbones);
-        btnDragonbones.addClickEventListener(this.onSelectDragonbones.bind(this));
-
-        var btnPlatformer = gv.commonButton(200, 64, cc.winSize.width/2, yBtn/2,"Platformer");
-        this.addChild(btnPlatformer);
-        btnPlatformer.addClickEventListener(this.onSelectPlatformer.bind(this));
+        var btnPlay = gv.commonButton(200, 64, cc.winSize.width / 2, yBtn / 2, "Play");
+        this.addChild(btnPlay);
+        btnPlay.addClickEventListener(this.onSelectPlatformer.bind(this));
 
     },
-    onEnter:function(){
+
+    onEnter: function () {
         this._super();
     },
-    onSelectNetwork:function(sender)
-    {
-        fr.view(ScreenNetwork);
-    },
-    onSelectLocalization:function(sender)
-    {
-        fr.view(ScreenLocalization);
-    },
-    onSelectDragonbones:function(sender)
-    {
-        fr.view(ScreenDragonbones);
-    },
-    onSelectPlatformer:function(sender)
-    {
-        fr.view(ScreenLevel1);
+
+    onSelectPlatformer: function (sender) {
+        fr.view(ScreenPlay);
     }
 });

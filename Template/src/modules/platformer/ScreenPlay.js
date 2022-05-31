@@ -2,7 +2,7 @@
  * Simple Platform Level 1
  */
 
-var ScreenLevel1 = cc.Layer.extend({
+var ScreenPlay = cc.Layer.extend({
     _itemMenu: null,
     _beginPos: 0,
     isMouseDown: false,
