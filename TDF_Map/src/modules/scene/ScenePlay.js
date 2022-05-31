@@ -2,10 +2,11 @@
  * Simple Scene
  */
 
-var ScreenPlay = cc.Layer.extend({
+var ScenePlay = cc.Layer.extend({
     _itemMenu: null,
     _beginPos: 0,
     isMouseDown: false,
+    _map: null,
 
     ctor: function () {
         this._super();
@@ -15,6 +16,11 @@ var ScreenPlay = cc.Layer.extend({
     loadGui: function () {
         this.removeAllChildren();
         var size = cc.winSize;
+
+        // Add map
+        this._map = new TDFMap();
+        this.addChild(this._map);
+        this._map.setPosition( (size.width - this._map._width) / 2, (size.height - this._map._height) / 2);
 
         var btnBack = gv.commonButton(100, 64, size.width - 70, 52, "Back");
         this.addChild(btnBack);
@@ -26,6 +32,6 @@ var ScreenPlay = cc.Layer.extend({
     },
 
     onSelectBack: function (sender) {
-        fr.view(ScreenMenu);
+        fr.view(SceneMenu);
     }
 });

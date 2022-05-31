@@ -2,7 +2,7 @@
  * Created by GSN on 7/6/2015.
  */
 
-var ScreenMenu = cc.Layer.extend({
+var SceneMenu = cc.Layer.extend({
     _itemMenu: null,
     _beginPos: 0,
     isMouseDown: false,
@@ -24,6 +24,6 @@ var ScreenMenu = cc.Layer.extend({
     },
 
     onSelectPlatformer: function (sender) {
-        fr.view(ScreenPlay);
+        fr.view(ScenePlay);
     }
 });

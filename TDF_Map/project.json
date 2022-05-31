@@ -14,11 +14,12 @@
     "jsListOrder": [
         "src/data/**/*.js",
         "src/framework/**/*.js",
-        "src/gui/screen/**/*.js",
+        "src/modules/map/Terrain.js",
         "src/**/*.js"
     ],
     "jsList": [
         "src/data/Resource.js",
+        "src/data/TDFConfig.js",
         "src/framework/AnimationMgr.js",
         "src/framework/Framework.js",
         "src/framework/GUI.js",
@@ -32,13 +33,16 @@
         "src/framework/PoolObject.js",
         "src/framework/StringUtils.js",
         "src/framework/UserData.js",
+        "src/modules/map/Terrain.js",
         "src/base/network/GameClient.js",
         "src/base/network/GameClientListener.js",
         "src/base/network/InPacketFactory.js",
         "src/base/Resource.js",
         "src/base/UIFactory.js",
-        "src/modules/game/ScreenPlay.js",
-        "src/modules/mainmenu/ScreenMenu.js",
+        "src/modules/map/Obstacle.js",
+        "src/modules/map/TDFMap.js",
+        "src/modules/scene/SceneMenu.js",
+        "src/modules/scene/ScenePlay.js",
         "src/modules/testnetwork/network/Network.js",
         "src/modules/testnetwork/network/Packet.js"
     ]
