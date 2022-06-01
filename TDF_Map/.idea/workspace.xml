@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modules/map/Pathfinder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/TDFConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/TDFConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/map/Pathfinder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/map/Pathfinder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/map/TDFMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/map/TDFMap.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -717,7 +715,7 @@
       <workItem from="1653961304655" duration="946000" />
       <workItem from="1653962293651" duration="123000" />
       <workItem from="1653962519847" duration="9921000" />
-      <workItem from="1654047450990" duration="8821000" />
+      <workItem from="1654047450990" duration="10996000" />
     </task>
     <servers />
   </component>

@@ -5,9 +5,10 @@
 var Pathfinder = cc.Node.extend({
     _openList: [],
     _closedList: [],
-    _nodes: [[]],
+    _nodes: null,
     _map: null,
     _maxSearchDistance: 20,
+    _randomPCost: null,
 
     ctor: function (map) {
         this._super();
@@ -19,10 +20,29 @@ var Pathfinder = cc.Node.extend({
         this._openList = [];
         this._closedList = [];
         this._nodes = this._map._cells;
+        this.initRandomPCost();
+    },
+
+    initRandomPCost: function () {
+        this._randomPCost = new Array(TDF.MAP_HEIGHT_TILES);
+        for (let i = 0; i < this._randomPCost.length; i++) {
+            this._randomPCost[i] = new Array(TDF.MAP_WIDTH_TILES);
+            for (let j = 0; j < this._randomPCost[i].length; j++) {
+                let r = Math.random();
+                if (r < 0.65) {
+                    this._randomPCost[i][j] = Math.floor(Math.random() * 2500) + 2500;
+                } else {
+                    this._randomPCost[i][j] = Math.floor(Math.random() * 250);
+                }
+            }
+        }
     },
 
     blankInit: function () {
-        this._nodes = new Array(TDF.MAP_HEIGHT_TILES).fill(new Array(TDF.MAP_WIDTH_TILES));
+        this._nodes = new Array(TDF.MAP_HEIGHT_TILES);
+        for (let i = 0; i < this._nodes.length; i++) {
+            this._nodes[i] = new Array(TDF.MAP_WIDTH_TILES);
+        }
 
         var i, j;
         for (i = 0; i < TDF.MAP_HEIGHT_TILES; i++) {
@@ -60,7 +80,7 @@ var Pathfinder = cc.Node.extend({
                     let xp = x + curr._x;
                     let yp = y + curr._y;
                     if (this.isValidLocationRandom(sx, sy, xp, yp)) {
-                        let nextStepCost = curr._pCost + this.getMoveCostRandom();
+                        let nextStepCost = curr._pCost + this.getMoveCostRandom(xp, yp);
                         let neighbour = this._nodes[xp][yp];
 
                         if (nextStepCost < neighbour._pCost) {
@@ -83,10 +103,11 @@ var Pathfinder = cc.Node.extend({
 
         let pathReversed = [], path = [];
         let target = this._nodes[tx][ty];
-        while (target != this._nodes[sx][sy]) {
+        while (target !== this._nodes[sx][sy]) {
             pathReversed.push(cc.p(target._x, target._y));
             target = target._parent;
         }
+        pathReversed.push(target);
 
         while (pathReversed.length !== 0) {
             path.push(pathReversed.pop());
@@ -100,20 +121,20 @@ var Pathfinder = cc.Node.extend({
         return !invalid;
     },
 
-    getMoveCostRandom: function () {
-        return Math.random() * 3;
+    getMoveCostRandom: function (xp, yp) {
+        return this._randomPCost[xp][yp];
     },
 
     inOpenList: function (elem) {
         for (let i = 0; i < this._openList.length; i++) {
-            if (this._openList[i] == elem) return true;
+            if (this._openList[i] === elem) return true;
         }
         return false;
     },
 
     removeFromOpen: function (elem) {
         for (let i = 0; i < this._openList.length; i++) {
-            if (this._openList[i] == elem) {
+            if (this._openList[i] === elem) {
                 this._openList.slice(i, 1);
                 return;
             }
@@ -122,14 +143,14 @@ var Pathfinder = cc.Node.extend({
 
     inClosedList: function (elem) {
         for (let i = 0; i < this._closedList.length; i++) {
-            if (this._closedList[i] == elem) return true;
+            if (this._closedList[i] === elem) return true;
         }
         return false;
     },
 
     removeFromClosed: function (elem) {
         for (let i = 0; i < this._closedList.length; i++) {
-            if (this._closedList[i] == elem) {
+            if (this._closedList[i] === elem) {
                 this._closedList.slice(i, 1);
                 return;
             }

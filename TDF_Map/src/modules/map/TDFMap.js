@@ -15,14 +15,17 @@ var TDFMap = cc.Node.extend({
         if (this._instance === null) {
             this._instance = this;
         }
+
+        this._cells = new Array(TDF.MAP_HEIGHT_TILES);
+        for (let i = 0; i < this._cells.length; i++) {
+            this._cells[i] = new Array(TDF.MAP_WIDTH_TILES);
+        }
+
         this._pathFinder = new Pathfinder(this);
-        this.initiate();
-        //this.generateRandomMap();
         this.generateMap();
     },
 
     initiate: function () {
-        // this._cells = new Array(TDF.MAP_HEIGHT_TILES).fill(new Array(TDF.MAP_WIDTH_TILES));
         this._cells = new Array(TDF.MAP_HEIGHT_TILES);
 
         let i, j;
@@ -61,8 +64,8 @@ var TDFMap = cc.Node.extend({
         this.initiate();
         this.generateRandomPath(0, 0, 6, 6);
 
-        let obstacleCount = 0;
-        let i, j;
+        let obstacleCount = 0, i, j;
+
         for (i = 0; i < TDF.MAP_HEIGHT_TILES; i++ ) {
             for (j = 0; j < TDF.MAP_WIDTH_TILES; j++) {
                 if (this._cells[i][j]._type.Type !== -1) continue;
