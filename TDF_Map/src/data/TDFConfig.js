@@ -9,21 +9,30 @@ TDF.MAX_OBSTACLE_NUMBER = 7;
 
 // Terrain config
 TDF.TERRAINS = {
+    NONE: {
+        Type: -1,
+        IsWalkable: true,
+        BaseSpritePath: "sprite/terrain/map_background_0001.png"
+    },
     DIRT: {
+        Type: 0,
         IsWalkable: true,
         BaseSpritePath: "sprite/terrain/map_background_0001.png"
     },
     BASE: {
+        Type: 1,
         IsWalkable: false,
         BaseSpritePath: "sprite/terrain/map_cell_0002.png"
     },
     STONE: {
+        Type: 2,
         IsWalkable: false,
         BaseHP: 100,
         BaseSpritePath: "sprite/terrain/map_cell_0000.png",
         DecorationSpritePath: "sprite/terrain/map_decoration_rock_0001.png"
     },
     TREE: {
+        Type: 3,
         IsWalkable: false,
         BaseHP: 35,
         BaseSpritePath: "sprite/terrain/map_cell_0003.png",
