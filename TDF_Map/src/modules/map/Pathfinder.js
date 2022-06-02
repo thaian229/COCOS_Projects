@@ -29,10 +29,10 @@ var Pathfinder = cc.Node.extend({
             this._randomPCost[i] = new Array(TDF.MAP_WIDTH_TILES);
             for (let j = 0; j < this._randomPCost[i].length; j++) {
                 let r = Math.random();
-                if (r < 0.65) {
+                if (r < 0.80) {
                     this._randomPCost[i][j] = Math.floor(Math.random() * 2500) + 2500;
                 } else {
-                    this._randomPCost[i][j] = Math.floor(Math.random() * 250);
+                    this._randomPCost[i][j] = Math.floor(Math.random() * 100);
                 }
             }
         }
