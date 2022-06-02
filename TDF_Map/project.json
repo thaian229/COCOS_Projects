@@ -14,6 +14,7 @@
     "jsListOrder": [
         "src/data/**/*.js",
         "src/framework/**/*.js",
+        "src/util/*.js",
         "src/modules/map/Terrain.js",
         "src/**/*.js"
     ],
@@ -33,13 +34,14 @@
         "src/framework/PoolObject.js",
         "src/framework/StringUtils.js",
         "src/framework/UserData.js",
+        "src/util/Utils.js",
         "src/modules/map/Terrain.js",
         "src/base/network/GameClient.js",
         "src/base/network/GameClientListener.js",
         "src/base/network/InPacketFactory.js",
         "src/base/Resource.js",
         "src/base/UIFactory.js",
-        "src/modules/enemy/enemy.js",
+        "src/modules/enemy/Enemy.js",
         "src/modules/map/Obstacle.js",
         "src/modules/map/Pathfinder.js",
         "src/modules/map/TDFMap.js",

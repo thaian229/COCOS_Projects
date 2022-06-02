@@ -9,8 +9,8 @@ var Enemy = cc.Sprite.extend({
     _type: TDF.ENEMIES.LESSER,
 
     ctor: function (type) {
-        // this._type = type;
-        // let baseFrame = cc.spriteFrameCache.getSpriteFrame(type.SPRITE_BASE + "0000" + ".png");
-        this._super("#giant/monster_giant_run_0063.png");
+        this._type = type;
+        let baseFrame = cc.spriteFrameCache.getSpriteFrame(type.SPRITE_BASE + "0000" + ".png");
+        this._super(baseFrame);
     }
 });

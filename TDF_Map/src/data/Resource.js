@@ -22,8 +22,7 @@ var res = {
     Slot1_png : "zcsd/slot1.png",
 
     //Sprite sheet
-    Animation_Lesser_plist: "sprite/enemy/lesser/lesser.plist",
-    Animation_Lesser_png: "sprite/enemy/lesser/lesser.png",
+    Animation_Lesser: "sprite/enemy/lesser/lesser.plist",
     Animation_Elite: "sprite/enemy/elite/elite.plist",
     Animation_Captain: "sprite/enemy/captain/captain.plist"
 };

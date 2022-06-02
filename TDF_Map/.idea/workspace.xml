@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/util/Utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sprite/enemy/lesser/lesser.plist" beforeDir="false" afterPath="$PROJECT_DIR$/res/sprite/enemy/lesser/lesser.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sprite/enemy/lesser/lesser.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/sprite/enemy/lesser/lesser.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/sprite/enemy/captain/captain.plist" beforeDir="false" afterPath="$PROJECT_DIR$/res/sprite/enemy/captain/captain.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/sprite/enemy/captain/captain.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/sprite/enemy/captain/captain.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/sprite/enemy/elite/elite.plist" beforeDir="false" afterPath="$PROJECT_DIR$/res/sprite/enemy/elite/elite.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/sprite/enemy/elite/elite.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/sprite/enemy/elite/elite.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/Resource.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Resource.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/TDFConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/TDFConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/enemy/enemy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/enemy/enemy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/enemy/enemy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/enemy/Enemy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/map/TDFMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/map/TDFMap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/scene/ScenePlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/scene/ScenePlay.js" afterDir="false" />
     </list>
@@ -322,7 +325,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JavaScript" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/res/sprite/enemy/lesser" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/res/sprite/enemy/captain" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="options.lastSelected" value="web-ide.project.structure" />
     <property name="options.searchVisible" value="true" />
@@ -337,9 +340,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workspace\COCOS_Projects\TDF_Map\res\sprite\enemy\lesser" />
       <recent name="D:\workspace\COCOS_Projects\TDF_Map\res\sprite\enemy\captain" />
       <recent name="D:\workspace\COCOS_Projects\TDF_Map\res\sprite\enemy\elite" />
+      <recent name="D:\workspace\COCOS_Projects\TDF_Map\res\sprite\enemy\lesser" />
       <recent name="D:\workspace\COCOS_Projects\TDF_Map\res\sprite\enemy" />
       <recent name="D:\workspace\COCOS_Projects\TDF_Map\res\sprite\terrain" />
     </key>
@@ -549,15 +552,13 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -724,6 +725,7 @@
       <workItem from="1654047450990" duration="10996000" />
       <workItem from="1654133711019" duration="2965000" />
       <workItem from="1654142791347" duration="3214000" />
+      <workItem from="1654150341040" duration="2691000" />
     </task>
     <servers />
   </component>

@@ -53,21 +53,24 @@ TDF.ENEMIES = {
         BaseHP: 25,
         MoveSpeed: 2 * TDF.TILE_SIZE,
         BaseDamage: 1,
-        SPRITE_BASE: "assassin/monster_assassin_run_"
+        SPRITE_BASE: "monster_assassin_run_",
+        ANI_FRAME: 10,
     },
 
     ELITE: {
         BaseHP: 60,
         MoveSpeed: 1.5 * TDF.TILE_SIZE,
         BaseDamage: 2,
-        SPRITE_BASE: "dragon/monster_dragon_run_"
+        SPRITE_BASE: "monster_dragon_run_",
+        ANI_FRAME: 10,
     },
 
     CAPTAIN: {
         BaseHP: 250,
         MoveSpeed: 0.5 * TDF.TILE_SIZE,
         BaseDamage: 5,
-        SPRITE_BASE: "giant/monster_giant_run_"
+        SPRITE_BASE: "monster_giant_run_",
+        ANI_FRAME: 16,
     }
 };
 
