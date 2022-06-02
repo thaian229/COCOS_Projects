@@ -18,11 +18,6 @@ var ScenePlay = cc.Layer.extend({
         this.removeAllChildren();
         var size = cc.winSize;
 
-        // Load Sprite Frame Cache
-        cc.spriteFrameCache.addSpriteFrames(res.Animation_Lesser);
-        cc.spriteFrameCache.addSpriteFrames(res.Animation_Elite);
-        cc.spriteFrameCache.addSpriteFrames(res.Animation_Captain);
-
         // Add map
         this._map = new TDFMap();
         this.addChild(this._map);
@@ -30,7 +25,6 @@ var ScenePlay = cc.Layer.extend({
 
         // Test
         this._map.spawnEnemy(TDF.ENEMIES.LESSER);
-        console.log(Utils.intTo4Chars(15));
 
         var btnBack = gv.commonButton(100, 64, size.width - 70, 52, "Back");
         this.addChild(btnBack);

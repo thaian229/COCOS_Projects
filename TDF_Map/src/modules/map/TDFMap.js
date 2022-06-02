@@ -43,6 +43,14 @@ var TDFMap = cc.Node.extend({
         this._height = TDF.MAP_HEIGHT_TILES * TDF.TILE_SIZE;
     },
 
+    // Getters & Setters
+    getInstance: function () {
+        if (this._instance) {
+            return this._instance;
+        }
+        return new TDFMap();
+    },
+
     // For test purpose - make a completely random map with no rules.
     generateRandomMap: function () {
         let i, j;

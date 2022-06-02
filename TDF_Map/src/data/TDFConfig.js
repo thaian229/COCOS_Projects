@@ -50,6 +50,7 @@ TDF.TERRAIN_INDEX = [
 // Enemy
 TDF.ENEMIES = {
     LESSER: {
+        name: "lesser",
         BaseHP: 25,
         MoveSpeed: 2 * TDF.TILE_SIZE,
         BaseDamage: 1,
@@ -58,6 +59,7 @@ TDF.ENEMIES = {
     },
 
     ELITE: {
+        name: "elite",
         BaseHP: 60,
         MoveSpeed: 1.5 * TDF.TILE_SIZE,
         BaseDamage: 2,
@@ -66,6 +68,7 @@ TDF.ENEMIES = {
     },
 
     CAPTAIN: {
+        name: "captain",
         BaseHP: 250,
         MoveSpeed: 0.5 * TDF.TILE_SIZE,
         BaseDamage: 5,
@@ -93,4 +96,64 @@ TDF.TAGS = {
     CELL: 0,
     ENEMY: 1,
     UI: 2
-}
+};
+
+// Animation Config
+TDF.DIRECTIONS = {
+    DOWN: {
+        name: "_down",
+        startFrameMultiplier: 0,
+        isFlipped: false,
+        velocityX: 0.0,
+        velocityY: -1.0,
+    },
+    DOWN_RIGHT: {
+        name: "_down_right",
+        startFrameMultiplier: 1,
+        isFlipped: false,
+        velocityX: 0.7,
+        velocityY: -0.7,
+    },
+    DOWN_LEFT: {
+        name: "_down_left",
+        startFrameMultiplier: 1,
+        isFlipped: true,
+        velocityX: -0.7,
+        velocityY: -0.7,
+    },
+    RIGHT: {
+        name: "_right",
+        startFrameMultiplier: 2,
+        isFlipped: false,
+        velocityX: 1.0,
+        velocityY: 0.0,
+    },
+    LEFT: {
+        name: "_left",
+        startFrameMultiplier: 2,
+        isFlipped: true,
+        velocityX: -1.0,
+        velocityY: 0.0,
+    },
+    UP_RIGHT: {
+        name: "_up_right",
+        startFrameMultiplier: 3,
+        isFlipped: false,
+        velocityX: 0.7,
+        velocityY: 0.7,
+    },
+    UP_LEFT: {
+        name: "_up_left",
+        startFrameMultiplier: 3,
+        isFlipped: true,
+        velocityX: -0.7,
+        velocityY: 0.7,
+    },
+    UP: {
+        name: "_up",
+        startFrameMultiplier: 4,
+        isFlipped: false,
+        velocityX: 0.0,
+        velocityY: 1.0,
+    },
+};

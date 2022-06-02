@@ -41,6 +41,7 @@
         "src/base/network/InPacketFactory.js",
         "src/base/Resource.js",
         "src/base/UIFactory.js",
+        "src/modules/enemy/AnimationManager.js",
         "src/modules/enemy/Enemy.js",
         "src/modules/map/Obstacle.js",
         "src/modules/map/Pathfinder.js",
