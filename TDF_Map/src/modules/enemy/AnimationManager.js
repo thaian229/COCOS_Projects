@@ -50,8 +50,4 @@ var AnimationManager = cc.Node.extend({
         let animation = new cc.Animation(frames, 0.1);
         cc.AnimationCache.getInstance().addAnimation(animation, animationName);
     },
-
-    getEnemyAnimation: function (type, direction) {
-
-    },
 });
