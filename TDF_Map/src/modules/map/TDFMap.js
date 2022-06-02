@@ -43,14 +43,6 @@ var TDFMap = cc.Node.extend({
         this._height = TDF.MAP_HEIGHT_TILES * TDF.TILE_SIZE;
     },
 
-    // Getters & Setters
-    getInstance: function () {
-        if (this._instance) {
-            return this._instance;
-        }
-        return new TDFMap();
-    },
-
     // For test purpose - make a completely random map with no rules.
     generateRandomMap: function () {
         let i, j;
@@ -104,9 +96,16 @@ var TDFMap = cc.Node.extend({
         terrain.setPosition(x * TDF.TILE_SIZE, (TDF.MAP_HEIGHT_TILES - 1 - y) * TDF.TILE_SIZE);
     },
 
+    getPointFromCell: function (x, y) {
+        let xp = x * TDF.TILE_SIZE + TDF.TILE_SIZE / 2;
+        let yp = (TDF.MAP_HEIGHT_TILES - 1 - y) * TDF.TILE_SIZE + TDF.TILE_SIZE / 2;
+        return cc.p(xp, yp)
+    },
+
     spawnEnemy: function (type) {
         let enemy = new Enemy(type);
         this.addChild(enemy);
         enemy.setPosition(TDF.TILE_SIZE / 2, (TDF.MAP_HEIGHT_TILES - 1) * TDF.TILE_SIZE + TDF.TILE_SIZE / 2);
+        return enemy;
     }
 });
