@@ -94,5 +94,11 @@ var TDFMap = cc.Node.extend({
         this._cells[x][y] = terrain;
         this.addChild(terrain);
         terrain.setPosition(x * TDF.TILE_SIZE, (TDF.MAP_HEIGHT_TILES - 1 - y) * TDF.TILE_SIZE);
+    },
+
+    spawnEnemy: function (type) {
+        let enemy = new Enemy(type);
+        this.addChild(enemy);
+        this.setPosition(TDF.TILE_SIZE / 2, (TDF.MAP_HEIGHT_TILES - 1) * TDF.TILE_SIZE + TDF.TILE_SIZE / 2);
     }
 });

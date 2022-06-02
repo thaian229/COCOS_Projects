@@ -8,7 +8,9 @@ var Enemy = cc.Sprite.extend({
     _damage: TDF.ENEMIES.LESSER.BaseDamage,
     _type: TDF.ENEMIES.LESSER,
 
-    ctor: function () {
-
+    ctor: function (type) {
+        // this._type = type;
+        // let baseFrame = cc.spriteFrameCache.getSpriteFrame(type.SPRITE_BASE + "0000" + ".png");
+        this._super("#giant/monster_giant_run_0063.png");
     }
 });

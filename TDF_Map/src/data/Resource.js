@@ -19,7 +19,13 @@ var res = {
     ZCSD_POPUP_MINI_GAME:"zcsd/game/mini_game/PopupMiniGame.json",
 
     //images
-    Slot1_png : "zcsd/slot1.png"
+    Slot1_png : "zcsd/slot1.png",
+
+    //Sprite sheet
+    Animation_Lesser_plist: "sprite/enemy/lesser/lesser.plist",
+    Animation_Lesser_png: "sprite/enemy/lesser/lesser.png",
+    Animation_Elite: "sprite/enemy/elite/elite.plist",
+    Animation_Captain: "sprite/enemy/captain/captain.plist"
 };
 
 var g_resources = [

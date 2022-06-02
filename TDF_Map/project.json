@@ -39,6 +39,7 @@
         "src/base/network/InPacketFactory.js",
         "src/base/Resource.js",
         "src/base/UIFactory.js",
+        "src/modules/enemy/enemy.js",
         "src/modules/map/Obstacle.js",
         "src/modules/map/Pathfinder.js",
         "src/modules/map/TDFMap.js",
