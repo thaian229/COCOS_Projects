@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/res/sprite/enemy/captain/captain.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sprite/enemy/captain/captain.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sprite/enemy/elite/elite.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sprite/enemy/elite/elite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sprite/enemy/lesser/lesser.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sprite/enemy/lesser/lesser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/enemy/enemy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/map/Pathfinder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/map/Pathfinder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestJS/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestJS/.idea/vcs.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -720,7 +713,7 @@
       <workItem from="1653962293651" duration="123000" />
       <workItem from="1653962519847" duration="9921000" />
       <workItem from="1654047450990" duration="10996000" />
-      <workItem from="1654133711019" duration="1762000" />
+      <workItem from="1654133711019" duration="2784000" />
     </task>
     <servers />
   </component>
