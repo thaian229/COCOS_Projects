@@ -44,6 +44,7 @@ var Enemy = cc.Sprite.extend({
         this.stopAllActions();
         let animation = cc.AnimationCache.getInstance().getAnimation(this._type.name + direction.name);
         let action = cc.animate(animation).repeatForever();
+        this.flippedX = direction.isFlipped;
         this.runAction(action);
     },
 

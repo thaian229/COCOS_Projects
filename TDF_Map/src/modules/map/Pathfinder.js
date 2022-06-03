@@ -19,7 +19,17 @@ var Pathfinder = cc.Node.extend({
     initiate: function () {
         this._openList = [];
         this._closedList = [];
-        this._nodes = this._map._cells;
+        this._nodes = new Array(TDF.MAP_HEIGHT_TILES);
+        for (let i = 0; i < this._nodes.length; i++) {
+            this._nodes[i] = new Array(TDF.MAP_WIDTH_TILES);
+        }
+
+        var i, j;
+        for (i = 0; i < TDF.MAP_HEIGHT_TILES; i++) {
+            for (j = 0; j < TDF.MAP_WIDTH_TILES; j++) {
+                this._nodes[i][j] = new PathNode(i, j);
+            }
+        }
         this.initRandomPCost();
     },
 
@@ -38,23 +48,8 @@ var Pathfinder = cc.Node.extend({
         }
     },
 
-    blankInit: function () {
-        this._nodes = new Array(TDF.MAP_HEIGHT_TILES);
-        for (let i = 0; i < this._nodes.length; i++) {
-            this._nodes[i] = new Array(TDF.MAP_WIDTH_TILES);
-        }
-
-        var i, j;
-        for (i = 0; i < TDF.MAP_HEIGHT_TILES; i++) {
-            for (j = 0; j < TDF.MAP_WIDTH_TILES; j++) {
-                this._nodes[i][j] = new PathNode(i, j);
-            }
-        }
-    },
-
     randomPath: function (sx, sy, tx, ty) {
         this.initiate();
-        this.blankInit();
 
         this._nodes[sx][sy]._pCost = 0;
         this._nodes[sx][sy]._depth = 0;
@@ -79,7 +74,7 @@ var Pathfinder = cc.Node.extend({
 
                     let xp = x + curr._x;
                     let yp = y + curr._y;
-                    if (this.isValidLocationRandom(sx, sy, xp, yp)) {
+                    if (this.isValidLocation(sx, sy, xp, yp)) {
                         let nextStepCost = curr._pCost + this.getMoveCostRandom(xp, yp);
                         let neighbour = this._nodes[xp][yp];
 
@@ -116,13 +111,19 @@ var Pathfinder = cc.Node.extend({
         return path;
     },
 
-    isValidLocationRandom: function (sx, sy, x, y) {
-        let invalid = (x < 0) || (y < 0) || (x >= TDF.MAP_WIDTH_TILES) || (y >= TDF.MAP_HEIGHT_TILES);
-        return !invalid;
+    isValidLocation: function (sx, sy, x, y) {
+        if ((x < 0) || (y < 0) || (x >= TDF.MAP_WIDTH_TILES) || (y >= TDF.MAP_HEIGHT_TILES)) {
+            return false;
+        }
+        return this._map._cells[x][y]._type.IsWalkable;
     },
 
-    getMoveCostRandom: function (xp, yp) {
-        return this._randomPCost[xp][yp];
+    getMoveCostRandom: function (x, y) {
+        return this._randomPCost[x][y];
+    },
+
+    getMoveCost: function (x, y) {
+        return this._map._cells[x][y]._type.MoveCost;
     },
 
     inOpenList: function (elem) {
