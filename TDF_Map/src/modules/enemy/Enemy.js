@@ -45,47 +45,48 @@ var Enemy = cc.Sprite.extend({
     },
 
     update: function (dt) {
-        this.checkReachedGoal();
         this.updateDestination();
         this.updateMoveDirection();
         this.makeEnemyMove(dt);
+        this.checkReachedGoal();
     },
 
     checkReachedGoal: function () {
         if (Math.abs(this.x - this._goal.x) < TDF.TERRAIN_RECT && Math.abs(this.y - this._goal.y) < TDF.TERRAIN_RECT) {
+            this.visible = false;
             this.destroy();
         }
     },
 
     updateDestination: function () {
         if (this._movePath.length <= 0) return;
-        console.log("x: " + this.x + ", des x: " + this._moveDestination.x);
-        console.log("y: " + this.y + ", des x: " + this._moveDestination.y);
+
         if (Math.abs(this.x - this._moveDestination.x) < TDF.TERRAIN_RECT && Math.abs(this.y - this._moveDestination.y) < TDF.TERRAIN_RECT) {
             let nextCell = this._movePath.pop();
-            this._moveDestination = g_shared_layer._map.getPointFromCell(nextCell);
+            this._moveDestination = g_shared_layer._map.getPointFromCell(nextCell.x, nextCell.y);
         }
     },
 
     updateMoveDirection: function () {
-        let offset = TDF.TERRAIN_RECT / 2;
+        let offset = TDF.TERRAIN_RECT / 10;
         let prevDirection = this._moveDirection;
 
         // To right
         if (this._moveDestination.x > this.x + offset) {
-            if (this._moveDirection.y > this.y + offset) this._moveDirection = TDF.DIRECTIONS.UP_RIGHT;
-            else if (this._moveDirection.y < this.y - offset) this._moveDirection = TDF.DIRECTIONS.DOWN_RIGHT;
+            // console.log("y: " + this.y + ", des y: " + this._moveDestination.y);
+            if (this._moveDestination.y > this.y + offset) this._moveDirection = TDF.DIRECTIONS.UP_RIGHT;
+            else if (this._moveDestination.y < this.y - offset) this._moveDirection = TDF.DIRECTIONS.DOWN_RIGHT;
             else this._moveDirection = TDF.DIRECTIONS.RIGHT;
         }
         // To Left
-        else if (this._moveDirection.x < this.x - offset) {
-            if (this._moveDirection.y > this.y + offset) this._moveDirection = TDF.DIRECTIONS.UP_LEFT;
-            else if (this._moveDirection.y < this.y - offset) this._moveDirection = TDF.DIRECTIONS.DOWN_LEFT;
+        else if (this._moveDestination.x < this.x - offset) {
+            if (this._moveDestination.y > this.y + offset) this._moveDirection = TDF.DIRECTIONS.UP_LEFT;
+            else if (this._moveDestination.y < this.y - offset) this._moveDirection = TDF.DIRECTIONS.DOWN_LEFT;
             else this._moveDirection = TDF.DIRECTIONS.LEFT;
         }
         // Just up or down
         else {
-            if (this._moveDirection.y > this.y) this._moveDirection = TDF.DIRECTIONS.UP;
+            if (this._moveDestination.y > this.y) this._moveDirection = TDF.DIRECTIONS.UP;
             else this._moveDirection = TDF.DIRECTIONS.DOWN;
         }
         // Update animation if needed
@@ -98,6 +99,8 @@ var Enemy = cc.Sprite.extend({
     },
 
     destroy: function () {
+        this.unscheduleUpdate();
+        this.stopAllActions();
         this.active = false;
         this.visible = false;
         this.removeFromParent();

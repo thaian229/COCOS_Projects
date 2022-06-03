@@ -47,14 +47,14 @@ TDF.TERRAIN_INDEX = [
     TDF.TERRAINS.TREE
 ];
 
-TDF.TERRAIN_RECT = 25;
+TDF.TERRAIN_RECT = 35;
 
 // Enemy
 TDF.ENEMIES = {
     LESSER: {
         name: "lesser",
         BaseHP: 25,
-        MoveSpeed: 0.4 * TDF.TILE_SIZE,
+        MoveSpeed: 0.75 * TDF.TILE_SIZE,
         BaseDamage: 1,
         SPRITE_BASE: "monster_assassin_run_",
         ANI_FRAME: 10,
@@ -63,7 +63,7 @@ TDF.ENEMIES = {
     ELITE: {
         name: "elite",
         BaseHP: 60,
-        MoveSpeed: 0.3 * TDF.TILE_SIZE,
+        MoveSpeed: 0.5 * TDF.TILE_SIZE,
         BaseDamage: 2,
         SPRITE_BASE: "monster_dragon_run_",
         ANI_FRAME: 10,
@@ -72,7 +72,7 @@ TDF.ENEMIES = {
     CAPTAIN: {
         name: "captain",
         BaseHP: 250,
-        MoveSpeed: 0.2 * TDF.TILE_SIZE,
+        MoveSpeed: 0.35 * TDF.TILE_SIZE,
         BaseDamage: 5,
         SPRITE_BASE: "monster_giant_run_",
         ANI_FRAME: 16,
