@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/TDFConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/TDFConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/enemy/Enemy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/enemy/Enemy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/map/Pathfinder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/map/Pathfinder.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -719,7 +716,8 @@
       <workItem from="1654222435167" duration="2288000" />
       <workItem from="1654225235135" duration="386000" />
       <workItem from="1654225803243" duration="2514000" />
-      <workItem from="1654228768149" duration="1481000" />
+      <workItem from="1654228768149" duration="1761000" />
+      <workItem from="1654230723747" duration="256000" />
     </task>
     <servers />
   </component>
