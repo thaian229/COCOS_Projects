@@ -43,23 +43,6 @@ var TDFMap = cc.Node.extend({
         this._height = TDF.MAP_HEIGHT_TILES * TDF.TILE_SIZE;
     },
 
-    // For test purpose - make a completely random map with no rules.
-    generateRandomMap: function () {
-        let i, j;
-        for (i = 0; i < TDF.MAP_HEIGHT_TILES; i++ ) {
-            for (j = 0; j < TDF.MAP_WIDTH_TILES; j++) {
-                let index = Math.floor(Math.random() * TDF.TERRAIN_INDEX.length);
-                let terrain = null;
-                if (index < 2) {
-                    terrain = new Terrain(TDF.TERRAIN_INDEX[index]);
-                } else {
-                    terrain = new Obstacle(TDF.TERRAIN_INDEX[index]);
-                }
-                this.addTerrainToCell(i, j, terrain);
-            }
-        }
-    },
-
     generateMap: function () {
         this.initiate();
         this.generateRandomPath(0, 0, 6, 6);
@@ -69,13 +52,21 @@ var TDFMap = cc.Node.extend({
         for (i = 0; i < TDF.MAP_HEIGHT_TILES; i++ ) {
             for (j = 0; j < TDF.MAP_WIDTH_TILES; j++) {
                 if (this._cells[i][j]._type.Type !== -1) continue;
-                let index = Math.floor(Math.random() * TDF.TERRAIN_INDEX.length);
+
                 let terrain = null;
-                if (index < 2 || (obstacleCount >= TDF.MAX_OBSTACLE_NUMBER)) {
+                // Adding obstacles or base
+                if (this.hasObstacleNearby(i, j) || obstacleCount >= TDF.MAX_OBSTACLE_NUMBER) {
                     terrain = new Terrain(TDF.TERRAIN_INDEX[1]);
                 } else {
-                    terrain = new Obstacle(TDF.TERRAIN_INDEX[index]);
-                    obstacleCount++;
+                    // able to add obstacle, but still random since obstacle should be rare
+                    let chance = Math.random();
+                    if (chance < 0.2) {
+                        let index = 2 + Math.floor(Math.random() * 2);
+                        terrain = new Obstacle(TDF.TERRAIN_INDEX[index]);
+                        obstacleCount++;
+                    } else {
+                        terrain = new Terrain(TDF.TERRAIN_INDEX[1]);
+                    }
                 }
                 this.addTerrainToCell(i, j, terrain);
             }
@@ -88,6 +79,27 @@ var TDFMap = cc.Node.extend({
             let terrain = new Terrain(TDF.TERRAIN_INDEX[0]);
             this.addTerrainToCell(this._movePath[i].x, this._movePath[i].y, terrain);
         }
+    },
+
+    hasObstacleNearby: function (i, j) {
+        let nearby = this.getNearbyCellNonDiagonal(i, j);
+        for (let i = 0; i < nearby.length; i++) {
+            if (nearby[i]._type.IsDestroyable) return true;
+        }
+        return false;
+    },
+
+    getNearbyCellNonDiagonal: function (i, j) {
+        let nearby = [];
+        for (let x = -1; x < 2; x++) {
+            for (let y = -1; y < 2; y++) {
+                if (x !== 0 && y !== 0) continue;
+                if (x === 0 && y === 0) continue;
+                if (i + x < 0 || i + x >= TDF.MAP_WIDTH_TILES || j + y < 0 || j + y >= TDF.MAP_HEIGHT_TILES) continue;
+                nearby.push(this._cells[i + x][j + y]);
+            }
+        }
+        return nearby;
     },
 
     addTerrainToCell: function (x, y, terrain) {

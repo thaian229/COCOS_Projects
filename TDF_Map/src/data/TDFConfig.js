@@ -12,21 +12,25 @@ TDF.TERRAINS = {
     NONE: {
         Type: -1,
         IsWalkable: true,
+        IsDestroyable: false,
         BaseSpritePath: "sprite/terrain/map_background_0001.png"
     },
     DIRT: {
         Type: 0,
         IsWalkable: true,
+        IsDestroyable: false,
         BaseSpritePath: "sprite/terrain/map_background_0001.png"
     },
     BASE: {
         Type: 1,
         IsWalkable: false,
+        IsDestroyable: false,
         BaseSpritePath: "sprite/terrain/map_cell_0002.png"
     },
     STONE: {
         Type: 2,
         IsWalkable: false,
+        IsDestroyable: true,
         BaseHP: 100,
         BaseSpritePath: "sprite/terrain/map_cell_0000.png",
         DecorationSpritePath: "sprite/terrain/map_decoration_rock_0001.png"
@@ -34,6 +38,7 @@ TDF.TERRAINS = {
     TREE: {
         Type: 3,
         IsWalkable: false,
+        IsDestroyable: true,
         BaseHP: 35,
         BaseSpritePath: "sprite/terrain/map_cell_0003.png",
         DecorationSpritePath: "sprite/terrain/map_forest_obstacle_1.png"
