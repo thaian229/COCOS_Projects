@@ -109,11 +109,13 @@ var Pathfinder = cc.Node.extend({
         }
         pathReversed.push(target);
 
-        while (pathReversed.length !== 0) {
-            path.push(pathReversed.pop());
-        }
+        return  pathReversed;
 
-        return path;
+        // while (pathReversed.length !== 0) {
+        //     path.push(pathReversed.pop());
+        // }
+        //
+        // return path;
     },
 
     isValidLocationRandom: function (sx, sy, x, y) {

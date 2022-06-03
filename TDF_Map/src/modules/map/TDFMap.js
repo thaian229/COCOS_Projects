@@ -105,7 +105,7 @@ var TDFMap = cc.Node.extend({
     spawnEnemy: function (type) {
         let enemy = new Enemy(type);
         this.addChild(enemy);
-        enemy.setPosition(TDF.TILE_SIZE / 2, (TDF.MAP_HEIGHT_TILES - 1) * TDF.TILE_SIZE + TDF.TILE_SIZE / 2);
+        enemy.setPosition(TDF.TILE_SIZE / 2, (TDF.MAP_HEIGHT_TILES - 1) * TDF.TILE_SIZE + TDF.TILE_SIZE * 0.85);
         return enemy;
     }
 });
