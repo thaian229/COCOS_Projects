@@ -8,6 +8,7 @@ var Enemy = cc.Sprite.extend({
     _damage: TDF.ENEMIES.LESSER.BaseDamage,
     _type: TDF.ENEMIES.LESSER,
     _movePath: null,
+    _currPathIndex: 0,
     _moveDirection: null,
     _moveDestination: null,
     _goal: null,
@@ -28,9 +29,11 @@ var Enemy = cc.Sprite.extend({
         this._moveDirection = TDF.DIRECTIONS.DOWN;
 
         // Set move destination and final goal position
-        let goal = this._movePath[0];
+        let goal = this._movePath[this._movePath.length - 1];
         this._goal = g_shared_layer._map.getPointFromCell(goal.x, goal.y);
-        let firstCell = this._movePath.pop();
+
+        this._currPathIndex = 0;
+        let firstCell = this._movePath[this._currPathIndex];
         this._moveDestination = g_shared_layer._map.getPointFromCell(firstCell.x, firstCell.y);
 
         this.changeDirection(this._moveDirection);
@@ -52,17 +55,18 @@ var Enemy = cc.Sprite.extend({
     },
 
     checkReachedGoal: function () {
-        if (Math.abs(this.x - this._goal.x) < TDF.TERRAIN_RECT && Math.abs(this.y - this._goal.y) < TDF.TERRAIN_RECT) {
+        if (Math.abs(this.x - this._goal.x) < TDF.TERRAIN_RECT / 10 && Math.abs(this.y - this._goal.y) < TDF.TERRAIN_RECT / 10) {
             this.visible = false;
             this.destroy();
         }
     },
 
     updateDestination: function () {
-        if (this._movePath.length <= 0) return;
+        if (this._currPathIndex >= this._movePath.length - 1) return;
 
         if (Math.abs(this.x - this._moveDestination.x) < TDF.TERRAIN_RECT && Math.abs(this.y - this._moveDestination.y) < TDF.TERRAIN_RECT) {
-            let nextCell = this._movePath.pop();
+            this._currPathIndex += 1;
+            let nextCell = this._movePath[this._currPathIndex];
             this._moveDestination = g_shared_layer._map.getPointFromCell(nextCell.x, nextCell.y);
         }
     },

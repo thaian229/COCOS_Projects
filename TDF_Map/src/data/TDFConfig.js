@@ -50,6 +50,9 @@ TDF.TERRAIN_INDEX = [
 TDF.TERRAIN_RECT = 35;
 
 // Enemy
+TDF.MIN_SPAWN_INTERVAL = 1.0;
+TDF.MAX_SPAWN_INTERVAL = 2.0;
+
 TDF.ENEMIES = {
     LESSER: {
         name: "lesser",

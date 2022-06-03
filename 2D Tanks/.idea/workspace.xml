@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TDF_Map/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TDF_Map/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TDF_Map/src/data/TDFConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TDF_Map/src/data/TDFConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TDF_Map/src/modules/enemy/Enemy.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TDF_Map/src/modules/enemy/Enemy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TDF_Map/src/modules/scene/ScenePlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TDF_Map/src/modules/scene/ScenePlay.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -722,6 +722,7 @@
       <workItem from="1653545768849" duration="4266000" />
       <workItem from="1654172985232" duration="30000" />
       <workItem from="1654222560740" duration="611000" />
+      <workItem from="1654224951633" duration="6000" />
     </task>
     <servers />
   </component>
