@@ -69,18 +69,17 @@ let monsterConfig = cc.loader.getRes(fileName);
 TDF.ENEMIES = {
     LESSER: {
         name: "lesser",
-        BaseHP: 25,
-        MoveSpeed: 0.85 * TDF.TILE_SIZE,
+        BaseHP: monsterConfig["monster"]["1"]["hp"],
+        MoveSpeed: monsterConfig["monster"]["1"]["speed"] * TDF.TILE_SIZE,
         BaseDamage: 1,
-        // BaseHP: monsterConfig.monster.1.hp,
         SPRITE_BASE: "monster_assassin_run_",
         ANI_FRAME: 10,
     },
 
     ELITE: {
         name: "elite",
-        BaseHP: 60,
-        MoveSpeed: 0.65 * TDF.TILE_SIZE,
+        BaseHP: monsterConfig["monster"]["0"]["hp"],
+        MoveSpeed: monsterConfig["monster"]["0"]["speed"] * TDF.TILE_SIZE,
         BaseDamage: 2,
         SPRITE_BASE: "monster_dragon_run_",
         ANI_FRAME: 10,
@@ -88,8 +87,8 @@ TDF.ENEMIES = {
 
     CAPTAIN: {
         name: "captain",
-        BaseHP: 250,
-        MoveSpeed: 0.4 * TDF.TILE_SIZE,
+        BaseHP: monsterConfig["monster"]["2"]["hp"],
+        MoveSpeed: monsterConfig["monster"]["2"]["speed"] * TDF.TILE_SIZE,
         BaseDamage: 5,
         SPRITE_BASE: "monster_giant_run_",
         ANI_FRAME: 16,
