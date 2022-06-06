@@ -63,12 +63,16 @@ TDF.TERRAIN_RECT = 35;
 TDF.MIN_SPAWN_INTERVAL = 1.0;
 TDF.MAX_SPAWN_INTERVAL = 2.0;
 
+let fileName = "res/Monster.json"
+let monsterConfig = cc.loader.getRes(fileName);
+
 TDF.ENEMIES = {
     LESSER: {
         name: "lesser",
         BaseHP: 25,
         MoveSpeed: 0.85 * TDF.TILE_SIZE,
         BaseDamage: 1,
+        // BaseHP: monsterConfig.monster.1.hp,
         SPRITE_BASE: "monster_assassin_run_",
         ANI_FRAME: 10,
     },
