@@ -39,10 +39,6 @@ var AnimationManager = cc.Node.extend({
 
         // get all frames
         for (let i = startIndex; i < endIndex; i++) {
-            // let f = cc.Sprite("#" + type.SPRITE_BASE + Utils.intTo4Chars(i) + ".png");
-            // f.setFlippedY(direction.isFlipped);
-            // TODO: How to flip Y a Sprite Frame
-            // Animation only work on Sprite Frame (not Sprite), but only Sprite can be flipped. @@
             let f = cc.spriteFrameCache.getSpriteFrame(type.SPRITE_BASE + Utils.intTo4Chars(i) + ".png");
             frames.push(f);
         }
