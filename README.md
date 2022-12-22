@@ -1,1 +1,1 @@
-# All COCOS2D Private Projects 
+# Some COCOS2D-JS Practicing/Tutorial Projects 
